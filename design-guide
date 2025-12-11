@@ -244,6 +244,18 @@ Copy
 	•	Benefits highlighted
 	•	Proof included
 
+Above-the-Fold Rules
+	•	CTA visible immediately on desktop
+	•	CTA visible immediately on mobile
+	•	No large image blocks before CTA
+
+Image Optimization
+	•	All images compressed
+	•	JPG when possible
+	•	No large images used unnecessarily
+	•	Total HTML size tested for Gmail clipping
+	•	Alt text added for accessibility
+
 Technical
 	•	UTM parameters added
 	•	All links functional
