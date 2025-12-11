@@ -6,13 +6,14 @@ Structure:
 2. Brand Voice
 3. Features & Benefits 
 4. Segments
-5. Custoemr Journeys
+5. Customer Journeys
 6. Personalization
 7. Copywriting
 8. Email Design Brief
 9. Campaign Calendar
-10. Analyze Results - make adjsutments to copy, calendar, offers, etc.
-11. A/B Testing 
+10. Analyze Performance - make adjsutments to copy, calendar, offers, etc.
+11. Analyze Deliverability - 
+12. A/B Testing 
 
 Specific Verticals: 
 1. Supplemants
