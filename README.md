@@ -2,10 +2,17 @@
 Tool for internal Client Use. 
 
 Structure: 
-1. Design Documents
-2. Brand Voice Documents
-3. Campaign Calendar
-4. Features & Benefits 
+1. Goals
+2. Brand Voice
+3. Features & Benefits 
+4. Segments
+5. Custoemr Journeys
+6. Personalization
+7. Copywriting
+8. Email Design Brief
+9. Campaign Calendar
+10. Analyze Results - make adjsutments to copy, calendar, offers, etc.
+11. A/B Testing 
 
 Specific Verticals: 
 1. Supplemants
