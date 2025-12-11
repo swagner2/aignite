@@ -1,0 +1,300 @@
+
+Klaviyo Email Design & Content Instructions Map
+
+A reusable framework for creating consistent, conversion-driven Klaviyo emails across all flows and campaigns.
+
+This document establishes design, structure, and brand-experience rules to ensure every email (flow or campaign) is on-brand, readable, accessible, mobile-optimized, and revenue-focused.
+
+Use this as your go-to reference whenever building or optimizing emails inside Klaviyo.
+
+⸻
+
+1. Global Email Structure Standards
+
+1.1 Layout Structure
+
+Every email should follow this hierarchy unless otherwise specified:
+	1.	Hero Section
+	•	Clear headline
+	•	Sub-headline
+	•	Primary CTA
+	•	Branded imagery
+	2.	Value Section
+	•	1–3 supporting points
+	•	Icons, product photos, or lifestyle shots
+	3.	Social Proof
+	•	Testimonials, reviews, ratings, or press badges
+	4.	Secondary CTA
+	•	Reinforce main outcome or objection removal
+	5.	Footer
+	•	Links to shop, categories, customer service, social
+
+⸻
+
+2. Brand Assets to Include in Every Email
+
+2.1 Brand Colors (Fill in for each client)
+	•	Primary:
+	•	Secondary:
+	•	Accent:
+	•	Utility (Background/Lines):
+
+2.2 Typography
+	•	Header Font:
+	•	Body Font:
+	•	Button Font:
+	•	Backup System Fonts:
+
+2.3 Logo Variations
+	•	Full logo
+	•	Stacked logo
+	•	White/reversed logo
+	•	Icon-only version
+
+2.4 Imagery Style
+	•	Product only / minimalist
+	•	Lifestyle real-world use
+	•	Seasonal moodboards
+	•	Color palette rules
+	•	Shadow/light guidelines
+
+⸻
+
+3. Email Component Library
+
+These are standard modules your team should reuse for consistency and speed:
+
+Hero Variants
+	•	Product-led hero
+	•	Offer-driven hero
+	•	Storytelling hero
+	•	Founder letter hero (with portrait)
+
+Content Blocks
+	•	Feature list (3-up or 4-up)
+	•	Ingredients/benefits block
+	•	Before/after comparison
+	•	Review testimonial carousel
+	•	Social proof wall
+	•	FAQ accordion
+	•	“Complete the routine” or cross-sell module
+
+Shopping Blocks
+	•	Recommended products
+	•	Bestsellers
+	•	“People also buy”
+	•	Collection highlight
+	•	Cart reminders with dynamic blocks
+
+Footer Templates
+	•	Basic
+	•	Full navigation
+	•	Compliance-heavy (SMS/email consent)
+
+⸻
+
+4. CTA Rules & Best Practices
+
+Primary CTA Format
+	•	Clear, concise, action-oriented
+	•	High-contrast button color
+	•	Use no more than 1 main CTA per screen section
+
+Examples:
+“Shop Now”
+“Take the Quiz”
+“Claim Your Offer”
+“Finish Checking Out”
+
+Secondary CTA Format
+	•	Text link
+	•	Smaller button
+	•	Soft intent
+
+Examples:
+“Learn More”
+“See How It Works”
+“View All Products”
+
+⸻
+
+5. Content Voice & Tone Guidelines
+
+5.1 Standard Email Tone
+
+(Replace this section with your client’s voice guide)
+	•	Conversational
+	•	Benefit-led
+	•	Friendly, not fluffy
+	•	Clear, not clever
+	•	Value-first, then call-to-action
+
+5.2 Copy Structure Rules
+	•	Subject line: curiosity + clarity
+	•	Preheader: don’t repeat the subject
+	•	Headline: 6–10 words max
+	•	Subheadline: supports the big idea
+	•	Paragraphs: 1–3 lines only
+	•	Use bullets for scannability
+	•	Always close with a CTA + reminder
+
+⸻
+
+6. Klaviyo Email-Specific Rules
+
+6.1 Mobile Optimization
+
+Required:
+	•	Min 14px body text
+	•	Buttons 44px high
+	•	600px max email width
+	•	Avoid small tappable elements
+	•	Keep headlines readable on mobile hero crops
+
+6.2 Image Standards
+	•	Max 1.2MB
+	•	JPG for lifestyle
+	•	PNG for transparent product assets
+	•	Background-safe text for dark mode
+
+6.3 Personalization Standards
+
+Common dynamic tags:
+	•	{{ first_name|default:‘Friend’ }}
+	•	{{ organization|default:’’ }}
+	•	Product recommendation blocks
+	•	Abandoned cart dynamic content
+	•	Review pull-ins (Yotpo/Judge.me)
+
+6.4 Compliance
+	•	CAN-SPAM
+	•	SMS compliance language
+	•	Unsubscribe link visible
+	•	Mailing address visible
+
+⸻
+
+7. Flow-Specific Requirements
+
+7.1 Welcome Series
+	•	Strong hero introduction
+	•	Big promise → product proof
+	•	Social proof early
+	•	Link to quiz or bestseller
+	•	1–2 CTAs max
+	•	Include a “why us” block in at least 1 email
+
+7.2 Abandon Cart / Checkout
+	•	Product image mandatory
+	•	Speed-focused copy
+	•	Trust badges
+	•	Remove friction: shipping, returns, guarantee
+	•	2–3 reminder touchpoints
+
+7.3 Post-Purchase
+	•	Congrats hero
+	•	“What’s next” section
+	•	Education on use-case
+	•	Cross-sell intelligently
+	•	Delivery timeline expectations
+
+7.4 Winback
+	•	Soft tone → not guilt-driven
+	•	New arrivals or updated benefits
+	•	Social proof from long-term users
+
+7.5 VIP
+	•	Exclusive tone
+	•	Tier-based access
+	•	Early-release hero
+	•	Loyalty-driven CTAs
+
+⸻
+
+8. Offer & Promo Guidelines
+
+Types of Offer Blocks
+	•	% off
+	•	Free gift
+	•	Bundle savings
+	•	Subscription benefits
+	•	Tiered offers
+
+Visual Rules
+	•	Offer must be above the fold
+	•	Large, bold offer text
+	•	Countdown timers (only when true scarcity exists)
+	•	Clear expiration language
+
+⸻
+
+9. Email Quality Checklist
+
+Before publishing, ensure your email passes these checks:
+
+Design
+	•	Clear visual hierarchy
+	•	Buttons high contrast
+	•	Images cropped correctly on mobile
+	•	Footer branded & compliant
+
+Copy
+	•	Subject line + preheader aligned
+	•	No large text blocks
+	•	Benefits highlighted
+	•	Proof included
+
+Technical
+	•	UTM parameters added
+	•	All links functional
+	•	Alt text added
+	•	dark mode friendly
+	•	Mobile preview tested
+
+Klaviyo-Specific
+	•	Personalization tags validated
+	•	Dynamic blocks rendering correctly
+	•	Flow filters correct (if in automation)
+
+⸻
+
+10. Maintenance & Review
+
+Monthly
+	•	Update templates with design improvements
+	•	Run mobile tests
+	•	Refresh social proof modules
+	•	Add seasonal hero variants
+
+Quarterly
+	•	Audit all flows for brand alignment
+	•	Identify outdated offers, images, or modules
+	•	Refresh testimonials and bestsellers
+	•	Re-test top subject lines
+
+⸻
+
+11. Quick Reference: What to Use When
+
+When writing a Welcome email:
+→ Use brand story hero + “why people love us” blocks
+
+When writing an Abandoned Cart email:
+→ Use product hero + trust builder section + urgency
+
+When writing a Post-Purchase email:
+→ Use educational block + product usage tips + reorder CTA
+
+When writing a Promo email:
+→ Use offer hero + benefit stack + timer
+
+When writing a Newsletter:
+→ Use storytelling intro + product tie-in + soft CTA
+
+⸻
+
+12. Version Control
+
+Last Updated: [Date]
+Next Review: [Date]
+Maintainer: [Designer / Klaviyo Specialist]
