@@ -1,0 +1,318 @@
+
+You can treat this as a “Segmentation Constitution” for lifecycle marketing.
+	•	Uses clear rules, constraints, and precedence
+	•	Separates definitions from usage
+	•	Adds a hard rule for subscription segments
+	•	Is written in a way an LLM can reliably follow without ambiguity
+	•	Is safe to reuse across clients and brands
+
+⸻
+
+📘 MASTER SEGMENTATION SPEC — LLM REFERENCE DOCUMENT (KLAVIYO)
+
+PURPOSE
+
+This document defines the canonical customer segments to be used across all email & SMS campaigns, flows, testing, and reporting.
+
+An LLM referencing this document must:
+	1.	Use only these segments
+	2.	Apply precedence and eligibility rules
+	3.	Respect business model constraints
+	4.	Avoid creating ad-hoc or conflicting segments
+
+⸻
+
+🧠 GLOBAL RULES (MANDATORY)
+
+RULE 1 — SEGMENT PRECEDENCE
+
+If a customer qualifies for multiple segments, prioritize in this order:
+	1.	MVP
+	2.	VIP
+	3.	Loyal
+	4.	Warm
+	5.	Never Bought
+	6.	Ghost
+	7.	Bounced / Suppressed
+
+An LLM must always target the highest-precedence segment only, unless explicitly instructed to combine segments.
+
+⸻
+
+RULE 2 — TIME WINDOWS ARE MUTUALLY EXCLUSIVE
+
+Time-based segments (30 / 60 / 90 / 91+ days) must never overlap.
+
+If a customer qualifies for:
+	•	30 days → exclude from 60, 90, and 91+
+	•	60 days → exclude from 30, 90, and 91+
+	•	90 days → exclude from 30, 60, and 91+
+
+⸻
+
+RULE 3 — SUPPRESSION & DELIVERABILITY
+
+The following segments must always be excluded from campaigns unless explicitly stated otherwise:
+	•	Ghosts
+	•	Bounces (last 45 days)
+	•	Suppressed profiles
+
+⸻
+
+RULE 4 — AOV LOGIC
+
+AOV-based segments apply only to customers who have placed at least one order.
+
+Never Bought customers must not be evaluated against AOV.
+
+⸻
+
+RULE 5 — SUBSCRIPTION BUSINESS CHECK (CRITICAL)
+
+Subscription-related segments may ONLY be used if the business sells subscriptions.
+
+An LLM must first determine:
+
+Business.HasSubscriptions = TRUE or FALSE
+
+If FALSE:
+	•	DO NOT reference
+	•	DO NOT create
+	•	DO NOT target
+	•	DO NOT infer behavior from:
+
+❌ Subscribers
+❌ Canceled Subscribers
+❌ Subscription renewal logic
+❌ Subscription churn prevention flows
+
+If TRUE, subscription segments become valid and may be used normally.
+
+⸻
+
+🔵 SEGMENT GROUP 1 — NEVER BOUGHT (NEW PROSPECTS)
+
+Definition
+
+Customers who have never placed an order.
+
+Base Logic
+
+Placed Order = 0
+AND
+Is Not Suppressed
+
+Time-Based Variants
+	•	Never Bought — 30 Days
+	•	Never Bought — 60 Days
+	•	Never Bought — 90 Days
+	•	Never Bought — 91+ Days
+
+Time Reference: First Active At
+
+Usage Rules
+	•	Used for: Welcome flows, abandon flows, education
+	•	Must NOT receive loyalty, VIP, or subscription messaging
+
+⸻
+
+🟠 SEGMENT GROUP 2 — WARM (BOUGHT ONCE)
+
+Definition
+
+Customers who have placed exactly one order.
+
+Base Logic
+
+Placed Order = 1
+AND
+Is Not Suppressed
+
+Time-Based Variants
+	•	Warm — 30 / 60 / 90 / 91+ Days
+(Reference: Last Placed Order)
+
+AOV Variants
+	•	Warm — Below Store AOV
+	•	Warm — Above Store AOV
+
+Usage Rules
+	•	Eligible for cross-sells, education, reorder nudges
+	•	May receive incentives ONLY if Below AOV
+	•	Must not be treated as VIP or Loyal
+
+⸻
+
+🟢 SEGMENT GROUP 3 — LOYAL (BOUGHT 2+ TIMES)
+
+Definition
+
+Customers who have placed two or more orders.
+
+Base Logic
+
+Placed Order ≥ 2
+AND
+Is Not Suppressed
+
+Time-Based Variants
+	•	Loyal — 30 / 60 / 90 / 91+ Days
+
+Usage Rules
+	•	Eligible for loyalty perks, early access, retention flows
+	•	Discounts discouraged unless explicitly required
+	•	Higher trust, less education needed
+
+⸻
+
+⭐ SEGMENT GROUP 4 — VIP & MVP (HIGH VALUE)
+
+VIP
+
+Customer Lifetime Value ≥ 2× Store AOV (or defined $XXX)
+AND
+Customer Lifetime Value < MVP Threshold
+
+MVP
+
+Customer Lifetime Value ≥ 3× Store AOV (or defined $XXXX)
+
+Usage Rules
+	•	Highest priority for campaigns
+	•	Early access, exclusives, high-touch messaging
+	•	Must not receive generic or discount-heavy emails
+
+⸻
+
+🔁 SEGMENT GROUP 5 — SUBSCRIPTIONS (CONDITIONAL)
+
+⚠️ ONLY VALID IF Business.HasSubscriptions = TRUE
+
+Subscribers — Active
+
+Has Active Subscription = TRUE
+
+Canceled Subscribers
+
+Has Active Subscription = FALSE
+AND
+Placed Order ≥ 1
+
+Usage Rules
+	•	Used for churn prevention, renewal reminders, win-back
+	•	Must NOT be referenced if subscriptions are not sold
+	•	Never mix with non-subscription messaging
+
+⸻
+
+🔥 SEGMENT GROUP 6 — WIN-BACK (INACTIVE BUYERS)
+
+Definition
+
+Customers who have purchased at least once but have been inactive.
+
+Logic
+
+Placed Order ≥ 1
+AND
+Last Active > 90 days ago
+
+Usage Rules
+	•	Used for reactivation campaigns
+	•	Messaging should acknowledge lapse
+	•	Do not treat as Warm or Loyal until reactivated
+
+⸻
+
+👻 SEGMENT GROUP 7 — GHOSTS (ZERO ENGAGEMENT)
+
+Definition
+
+Profiles that never engaged in any way.
+
+Logic
+
+Placed Order = 0
+AND
+Email Opens = 0
+AND
+Email Clicks = 0
+AND
+Website Visits = 0
+AND
+Profile Age > 30 days
+AND
+Is Not Suppressed
+
+Usage Rules
+	•	Exclude from campaigns
+	•	Use only for sunset or deliverability cleanup
+
+⸻
+
+⚠️ SEGMENT GROUP 8 — BOUNCES
+
+Definition
+
+Emails that bounced in the last 45 days.
+
+Logic
+
+Email Bounced = TRUE
+AND
+Bounce Date within last 45 days
+
+Usage Rules
+	•	Always excluded
+	•	Never targeted
+
+⸻
+
+🔁 SEGMENT GROUP 9 — ECHOS (CAMPAIGN RESENDS)
+
+Definition
+
+Non-openers of a specific campaign.
+
+Logic
+
+Received Campaign X
+AND
+Did Not Open
+AND
+Within 24 hours
+
+Usage Rules
+	•	Campaign-specific only
+	•	Must not be saved as permanent segments
+	•	Used once per campaign
+
+⸻
+
+🧠 LLM USAGE INSTRUCTIONS (FINAL)
+
+When generating campaigns or flows, the LLM must:
+	1.	Determine Business.HasSubscriptions
+	2.	Select eligible segment groups
+	3.	Apply precedence rules
+	4.	Exclude Ghosts, Bounces, Suppressed
+	5.	Apply AOV logic only to purchasers
+	6.	Use time-based segments without overlap
+	7.	Avoid inventing new segments
+	8.	Match tone, incentives, and CTAs to segment maturity
+
+⸻
+
+✅ This document is now safe to use as:
+	•	A system prompt
+	•	An internal “rules engine”
+	•	A reference doc for AI-assisted lifecycle marketing
+	•	A guardrail to prevent bad segmentation decisions
+
+If you want, next I can:
+	•	Convert this into a machine-readable JSON schema
+	•	Turn this into a Klaviyo SOP for your team
+	•	Create flow rules that auto-select segments
+	•	Build a Notion / Google Doc playbook version
+
+Just tell me which format you want next.
