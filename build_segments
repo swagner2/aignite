@@ -1,0 +1,337 @@
+Here’s a ready-to-use JSON segment library you can drop into your agency “segment pack” system. It follows Klaviyo’s Segments API definition model: definition.condition_groups are AND, each group’s conditions are OR.  ￼
+
+How to use this library
+	•	Replace {{…}} placeholders (especially metric_ids).
+	•	Create via POST https://a.klaviyo.com/api/segments with revision: 2024-06-15 (or your chosen revision).  ￼
+	•	You can also copy segment JSON from the Klaviyo UI by adding .json to the segment definition URL—super useful to confirm structure.  ￼
+
+⸻
+
+0) Common placeholders you’ll fill once per client
+	•	{{metric_id_placed_order}} (Placed Order)
+	•	{{metric_id_viewed_product}} (Viewed Product)
+	•	{{metric_id_added_to_cart}} (Added to Cart)
+	•	{{metric_id_opened_email}} (Opened Email) / {{metric_id_clicked_email}} (Clicked Email) (if you use engagement)
+	•	{{list_id_newsletter}} (optional, for list-membership-based segments)
+
+Klaviyo “metric_id” is required for metric-based segment conditions.  ￼
+
+⸻
+
+Segment Pack: “Lifecycle Core” (10 templates)
+
+1) Active Profiles — can receive email marketing
+
+{
+  "data": {
+    "type": "segment",
+    "attributes": {
+      "name": "[Agency] | Deliverability | Can Receive Email Marketing | v1",
+      "definition": {
+        "condition_groups": [
+          {
+            "conditions": [
+              {
+                "type": "profile-marketing-consent",
+                "consent": {
+                  "channel": "email",
+                  "can_receive_marketing": true,
+                  "consent_status": {
+                    "subscription": "subscribed",
+                    "filters": []
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+(Uses profile-marketing-consent structure shown in Klaviyo’s segments docs.)  ￼
+
+⸻
+
+2) Engaged — clicked email in last 30 days
+
+{
+  "data": {
+    "type": "segment",
+    "attributes": {
+      "name": "[Agency] | Engagement | Clicked Email (30d) | v1",
+      "definition": {
+        "condition_groups": [
+          {
+            "conditions": [
+              {
+                "type": "profile-metric",
+                "metric_id": "{{metric_id_clicked_email}}",
+                "measurement": "count",
+                "measurement_filter": { "type": "numeric", "operator": "greater-than", "value": 0 },
+                "timeframe_filter": { "type": "date", "operator": "in-the-last", "quantity": 30, "unit": "day" }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+(Uses the profile-metric structure.)  ￼
+
+⸻
+
+3) New Subscribers — joined list in last 14 days
+
+{
+  "data": {
+    "type": "segment",
+    "attributes": {
+      "name": "[Agency] | Leads | Added to Newsletter List (14d) | v1",
+      "definition": {
+        "condition_groups": [
+          {
+            "conditions": [
+              {
+                "type": "profile-group-membership",
+                "is_member": true,
+                "group_ids": ["{{list_id_newsletter}}"],
+                "timeframe_filter": { "type": "date", "operator": "in-the-last", "quantity": 14, "unit": "day" }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+(profile-group-membership supports list IDs; note Klaviyo docs say group_ids currently supports only one list ID.)  ￼
+
+⸻
+
+4) Never Purchased — no Placed Order ever
+
+Klaviyo’s segment definition language supports many patterns; the cleanest, lowest-friction way is usually to use a profile property your stack maintains, e.g. properties['total_orders'] or properties['has_ordered']. Here’s a robust version using a numeric order count property:
+
+{
+  "data": {
+    "type": "segment",
+    "attributes": {
+      "name": "[Agency] | Lifecycle | 0x Buyers (Never Purchased) | v1",
+      "definition": {
+        "condition_groups": [
+          {
+            "conditions": [
+              {
+                "type": "profile-property",
+                "property": "properties['total_orders']",
+                "filter": { "type": "numeric", "operator": "equals", "value": 0 }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+(profile-property syntax is supported for matching on profile properties.)  ￼
+
+⸻
+
+5) 1x Buyers — exactly 1 order, in last 365 days
+
+{
+  "data": {
+    "type": "segment",
+    "attributes": {
+      "name": "[Agency] | Lifecycle | 1x Buyers (365d) | v1",
+      "definition": {
+        "condition_groups": [
+          {
+            "conditions": [
+              {
+                "type": "profile-metric",
+                "metric_id": "{{metric_id_placed_order}}",
+                "measurement": "count",
+                "measurement_filter": { "type": "numeric", "operator": "equals", "value": 1 },
+                "timeframe_filter": { "type": "date", "operator": "in-the-last", "quantity": 365, "unit": "day" }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+￼
+
+⸻
+
+6) Repeat Buyers — 2+ orders all-time
+
+{
+  "data": {
+    "type": "segment",
+    "attributes": {
+      "name": "[Agency] | Lifecycle | 2x+ Buyers (All-time) | v1",
+      "definition": {
+        "condition_groups": [
+          {
+            "conditions": [
+              {
+                "type": "profile-metric",
+                "metric_id": "{{metric_id_placed_order}}",
+                "measurement": "count",
+                "measurement_filter": { "type": "numeric", "operator": "greater-than-or-equal", "value": 2 },
+                "timeframe_filter": null
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+(timeframe_filter: null is shown in Klaviyo examples.)  ￼
+
+⸻
+
+7) VIP — lifetime revenue >= $300 (sum)
+
+{
+  "data": {
+    "type": "segment",
+    "attributes": {
+      "name": "[Agency] | VIP | LTV >= 300 | v1",
+      "definition": {
+        "condition_groups": [
+          {
+            "conditions": [
+              {
+                "type": "profile-metric",
+                "metric_id": "{{metric_id_placed_order}}",
+                "measurement": "sum",
+                "measurement_filter": { "type": "numeric", "operator": "greater-than-or-equal", "value": 300 },
+                "timeframe_filter": null
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+(Klaviyo supports measurement: sum for metrics that carry values.)  ￼
+
+⸻
+
+8) High Intent Browsers — Viewed Product 2+ times in last 7 days
+
+{
+  "data": {
+    "type": "segment",
+    "attributes": {
+      "name": "[Agency] | Intent | Viewed Product 2+ (7d) | v1",
+      "definition": {
+        "condition_groups": [
+          {
+            "conditions": [
+              {
+                "type": "profile-metric",
+                "metric_id": "{{metric_id_viewed_product}}",
+                "measurement": "count",
+                "measurement_filter": { "type": "numeric", "operator": "greater-than-or-equal", "value": 2 },
+                "timeframe_filter": { "type": "date", "operator": "in-the-last", "quantity": 7, "unit": "day" }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+￼
+
+⸻
+
+9) Cart Builders — Added to Cart 1+ in last 3 days
+
+{
+  "data": {
+    "type": "segment",
+    "attributes": {
+      "name": "[Agency] | Intent | Added to Cart (3d) | v1",
+      "definition": {
+        "condition_groups": [
+          {
+            "conditions": [
+              {
+                "type": "profile-metric",
+                "metric_id": "{{metric_id_added_to_cart}}",
+                "measurement": "count",
+                "measurement_filter": { "type": "numeric", "operator": "greater-than", "value": 0 },
+                "timeframe_filter": { "type": "date", "operator": "in-the-last", "quantity": 3, "unit": "day" }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+￼
+
+⸻
+
+10) Lapsed Customers — no order in last 90 days (property-based)
+
+Same idea as “Never Purchased”: simplest + most stable across stores is using $last_order_at (or your own last_order_at) and a date filter.
+
+{
+  "data": {
+    "type": "segment",
+    "attributes": {
+      "name": "[Agency] | Lapsed | Last Order > 90 Days Ago | v1",
+      "definition": {
+        "condition_groups": [
+          {
+            "conditions": [
+              {
+                "type": "profile-property",
+                "property": "properties['$last_order_at']",
+                "filter": { "type": "date", "operator": "before", "value": "{{iso_datetime_90_days_ago}}" }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+(profile-property supports date filters; the docs show how profile-property is structured and that property can reference nested fields.)  ￼
+
+⸻
+
+Two operational notes agencies should bake into the library
+	•	Klaviyo calls out processing limits (e.g., “maximum of 5 segments processed at a time” + daily creation limits), so deploy in batches and watch is_processing.  ￼
+	•	Your team can always validate the exact JSON by creating a segment in the UI, then viewing its .json representation and matching your templates to it.  ￼
+
+⸻
+
+If you tell me your “standard pack” (ecom vs subscription-heavy vs lead-gen), I’ll expand this into a 30–50 segment library with:
+	•	clean naming + versions,
+	•	Recharge/Skio variants,
+	•	suppression segments (ex: “Do Not Email – Unengaged 120d”),
+	•	country/state + timezone packs,
+	•	and a “flow-ready” mapping (which segments attach to which flows).
