@@ -1,0 +1,311 @@
+Klaviyo segmentation framework to use across all campaigns, automations, A/B testing, and retention reporting.
+
+Each segment uses Klaviyo logic, added recommended behavioral filters, and grouped them into a reusable hierarchy you can plug into ANY brand account.
+
+This is best-in-class lifecycle architecture and aligns with how top retention teams run segmentation at scale.
+
+⸻
+
+🚀 MASTER SEGMENT FRAMEWORK FOR KLAVIYO
+
+Use these as your global segmentation system for campaigns & flows.
+
+Each segment includes:
+	1.	Klaviyo definition
+	2.	Exact filter logic
+	3.	Lifecycle purpose
+	4.	How to use in flows + campaigns
+
+⸻
+
+—————————————————————————
+
+1. NEW CUSTOMERS (NEVER PURCHASED)
+
+Definition: In email list but zero purchases.
+
+Base Segment
+
+Never Bought Customers — All
+
+Placed Order = 0  
+AND  
+Is Not Suppressed  
+
+Time-Based Breakouts
+
+Never Bought – 30 Days
+
+Placed Order = 0  
+AND  
+First Active At is in the last 30 days  
+
+Never Bought – 60 Days
+
+Placed Order = 0  
+AND  
+First Active At is between 31 and 60 days ago  
+
+Never Bought – 90 Days
+
+Placed Order = 0  
+AND  
+First Active At is between 61 and 90 days ago  
+
+Never Bought – 91+ Days
+
+Placed Order = 0  
+AND  
+First Active At is greater than 90 days ago  
+
+Purpose:
+
+Used for welcome series, abandoned browse/cart/checkout, education campaigns, and converting new users at different awareness levels.
+
+⸻
+
+—————————————————————————
+
+2. WARM CUSTOMERS — BOUGHT ONCE
+
+Base Segment
+
+Placed Order = 1  
+AND  
+Is Not Suppressed
+
+Time-Based Breakouts
+
+Warm 30 Days
+
+Placed Order = 1  
+AND  
+Last Placed Order is in the last 30 days
+
+Warm 60 Days
+
+Placed Order = 1  
+AND  
+Last Placed Order is between 31–60 days ago
+
+Warm 90 Days
+
+Placed Order = 1  
+AND  
+Last Placed Order is between 61–90 days ago
+
+Warm 91+ Days
+
+Placed Order = 1  
+AND  
+Last Placed Order is greater than 90 days ago
+
+AOV-Based Breakouts
+
+Warm – Below Store AOV
+
+Placed Order = 1  
+AND  
+Customer Lifetime Value < Store AOV  
+
+Warm – Above Store AOV
+
+Placed Order = 1  
+AND  
+Customer Lifetime Value ≥ Store AOV  
+
+Purpose:
+
+Perfect for cross-sells, win-back flows, replenishment sequences, and value-building content.
+
+⸻
+
+—————————————————————————
+
+3. LOYAL CUSTOMERS — BOUGHT 2+ TIMES
+
+Base Segment
+
+Placed Order ≥ 2  
+AND  
+Is Not Suppressed
+
+Time-Based Breakouts
+
+Loyal 30 Days
+
+Placed Order ≥ 2  
+AND  
+Last Placed Order is in the last 30 days
+
+Loyal 60 Days
+
+Placed Order ≥ 2  
+AND  
+Last Placed Order is between 31–60 days ago
+
+Loyal 90 Days
+
+Placed Order ≥ 2  
+AND  
+Last Placed Order is between 61–90 days ago
+
+Loyal 91+ Days
+
+Placed Order ≥ 2  
+AND  
+Last Placed Order is greater than 90 days ago
+
+Purpose:
+
+VIP nurturing, early access drops, premium cross-sells, referral pushes, loyalty programs.
+
+⸻
+
+Only use Subscription segments if the business sells subscriptions to their products. 
+
+4. SUBSCRIBERS — ACTIVE SUBSCRIPTION CUSTOMERS
+
+Subscribers — Active
+
+Has Active Subscription = True  
+
+Purpose:
+
+Used for subscription upgrade flows, proactive churn prevention, pre-renewal education, and surprise & delight.
+
+⸻
+
+—————————————————————————
+
+5. CANCELED SUBSCRIBERS — LOST SUBSCRIPTIONS
+
+Canceled Subscribers
+
+Has Active Subscription = False  
+AND  
+Placed Order ≥ 2 (optional: subscription count ≥1)
+
+Purpose:
+
+Win-back flows, “why you canceled” surveys, comeback offers, education on product benefits.
+
+⸻
+
+—————————————————————————
+
+6. VIP & MVP SEGMENTS (VALUE-BASED HIGH LTV)
+
+VIP — 2× LTV Threshold (custom value)
+
+Customer Lifetime Value ≥ $XXX  
+AND  
+Customer Lifetime Value < $XXXX  
+
+MVP — 3× LTV Threshold
+
+Customer Lifetime Value ≥ $XXXX  
+
+Purpose:
+
+Highly personalized campaigns, early access sales, high-touch communications, referral rewards.
+
+⸻
+
+—————————————————————————
+
+7. WIN-BACK CUSTOMERS (INACTIVE PURCHASERS)
+
+Win-Back — 90+ Days Since Last Activity
+
+Placed Order ≥ 1  
+AND  
+Last Active is greater than 90 days ago
+
+Last Active includes site visits, email engagement, etc.
+
+Purpose:
+
+Win-back flows, replenishment reminders, educational campaigns, “we miss you” messaging.
+
+
+
+—————————————————————————
+
+👻 8. GHOSTS — ZERO ENGAGEMENT EVER
+
+Ghosts Segment
+
+Placed Order = 0  
+AND  
+Has Opened Email = 0  
+AND  
+Has Clicked Email = 0  
+AND  
+Has Viewed Product = 0  
+AND  
+Has Been In List for > 30 days  
+AND  
+Is Not Suppressed
+
+Purpose:
+
+Identify deliverability threats, remove from campaigns, prepare for sunset policies.
+
+⸻
+
+—————————————————————————
+
+9. BOUNCES — RECENT HARD OR SOFT BOUNCES
+
+Bounced Email Addresses — 45 Days
+
+Email bounced is true  
+AND  
+Bounce Date is in the last 45 days
+
+Purpose:
+
+List hygiene, suppression workflows, deliverability protection.
+
+⸻
+
+—————————————————————————
+
+10. ECHOS — RESEND NON-OPENERS (CAMPAIGN)
+
+These are not a “static segment” — they must be created per campaign.
+
+Echo Segment (Within 24 hrs of campaign)
+
+Received Email = {CAMPAIGN NAME}  
+AND  
+Opened Email = 0  
+AND  
+In the last 24 hours  
+
+Purpose:
+
+Resend campaigns to boost open rate by 10–18% without harming deliverability.
+
+⸻
+
+—————————————————————————
+
+HOW TO USE THIS SEGMENTATION IN FLOWS & CAMPAIGNS
+
+Every Flow Should Use:
+	•	Never Bought segments (Welcome → Educate → Convert)
+	•	Warm segments (<AOV for growth, >AOV for efficiency)
+	•	Loyal segments (VIP/MVP for premium treatment)
+	•	Win-Back segments for reactivation
+	•	Subscribers & Canceled Subscribers for subscription automation
+
+Every Campaign Should Use:
+	•	Warm 30/60/90-day
+	•	Loyal 30/60/90-day
+	•	VIP/MVP
+	•	Echo Resend Segment (24–36 hrs later)
+	•	Exclusions: Ghosts + Bounces
+
+⸻
