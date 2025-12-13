@@ -1,0 +1,254 @@
+Klaviyo Personalization Tags
+
+Purpose
+
+This guide instructs language models how to correctly use Klaviyo personalization variables (tags) when generating email copy, subject lines, and dynamic content.
+Incorrect syntax will break rendering inside Klaviyo. Follow these rules strictly.
+
+⸻
+
+1. Core Rules (Read First)
+	1.	Never invent tags
+Only use tags explicitly listed in this guide or provided by the user.
+	2.	Respect tag namespaces
+	•	Profile data → person
+	•	Event data → event
+	•	Organization data → organization
+	3.	Always use default filters for customer-facing copy
+This prevents broken or awkward emails.
+	4.	Do not mix dot notation and lookup notation in the same chain
+	•	If one level uses lookup, all following levels must use lookup.
+	5.	Do not render raw template code explanations in final emails
+	•	Emails must contain only valid Klaviyo syntax and natural language.
+
+⸻
+
+2. Profile Personalization Tags (Most Common)
+
+Built-In Profile Tags
+
+Use these exactly as written.
+
+Tag	Meaning
+{{ email }}	Email address
+{{ first_name }}	First name
+{{ last_name }}	Last name
+{{ person.full_name }}	Full name
+{{ person.phone_number }}	Phone number
+{{ person.organization }}	Recipient organization
+{{ person.title }}	Job title
+{{ person.City }}	City
+{{ person.Region }}	State / Region
+{{ person.Country }}	Country
+{{ person.Zipcode }}	Zip code
+{{ person.KlaviyoID }}	Klaviyo ID
+{{ person.ViewedItems }}	Recently viewed items
+`{{ person	lookup:“Expected Date Of Next Order” }}`
+
+
+⸻
+
+Lookup Syntax (Required for Spaces or Special Characters)
+
+Use lookup when the property name contains spaces or symbols.
+
+{{ person|lookup:'Favorite Color' }}
+{{ person|lookup:'$consent_method' }}
+
+❌ Incorrect:
+
+{{ person.Favorite Color }}
+
+
+⸻
+
+3. Always Use Defaults in Customer Copy
+
+LLMs must ALWAYS include a fallback using |default: for customer-facing content.
+
+Correct
+
+Hey {{ first_name|default:'friend' }},
+
+Correct (lookup + default)
+
+Your favorite color is {{ person|lookup:'Favorite Color'|default:'one of our classics' }}
+
+
+⸻
+
+4. Formatting Filters (Highly Recommended)
+
+Title Case
+
+Use this on names to normalize casing.
+
+{{ first_name|title|default:'friend' }}
+
+Common Safe Filters
+	•	default
+	•	title
+	•	lower
+	•	upper
+
+⸻
+
+5. Organization Tags (Brand Information)
+
+Use these for footers, compliance, and trust signals.
+
+Tag	Meaning
+{{ organization.name }}	Brand name
+{{ organization.url }}	Website
+{{ organization.full_address }}	Full address
+{{ organization.street_address }}	Street
+{{ organization.city }}	City
+{{ organization.region }}	State/Region
+{{ organization.zip_code }}	Zip
+
+
+⸻
+
+6. Unsubscribe (Mandatory)
+
+Every email must contain an unsubscribe link.
+
+Standard
+
+{% unsubscribe %}
+
+Custom Text
+
+If you’d rather not hear from us, {% unsubscribe 'click here' %}.
+
+
+⸻
+
+7. Event Tags (Flows Only)
+
+⚠️ Only use event tags in flows triggered by that event.
+
+Simple Event Tag
+
+{{ event.URL }}
+
+Lookup Event Tag
+
+{{ event|lookup:'$value' }}
+
+Nested Event Tag (Dot Notation)
+
+{{ event.extra.checkout_url }}
+
+Nested with Lookup
+
+{{ event|lookup:'Coupon Codes'|lookup:'0' }}
+
+❌ Invalid:
+
+{{ event|lookup:'Coupon Codes'.0 }}
+
+
+⸻
+
+8. Currency Formatting (Required for Prices)
+
+Correct
+
+{% currency_format event|lookup:"$value" %}
+
+With Default
+
+{% currency_format event.item.price|default:"0" %}
+
+⚠️ Only works on numbers, not strings like $40.
+
+⸻
+
+9. Date Tags
+
+Today’s Date (Required Full Syntax)
+
+{% today "%Y-%m-%d" as today %} {{ today }}
+
+⚠️ {{ today }} alone will not render.
+
+⸻
+
+10. Conditional Logic (Advanced Personalization)
+
+If / Else Example
+
+{% if person|lookup:'Loyalty Points' > 150 %}
+You’re a VIP — free shipping is on us.
+{% elif person|lookup:'Loyalty Points' > 0 %}
+You have {{ person|lookup:'Loyalty Points' }} points — almost VIP!
+{% else %}
+Join our rewards program and start earning perks.
+{% endif %}
+
+Rules
+	•	Always close with {% endif %}
+	•	Only the first matching condition renders
+	•	Use lookup for properties with spaces
+
+⸻
+
+11. Looping Through Lists (For Statements)
+
+Shopping Cart Example
+
+{% for item in event.shopping_cart_items %}
+{{ item.name }} × {{ item.quantity }}
+{% endfor %}
+
+Rules
+	•	Must include {% for %} and {% endfor %}
+	•	Use the alias (item) instead of numeric indexes
+
+⸻
+
+12. Inline Editor Visibility Warning
+
+LLMs should assume:
+	•	{% if %}, {% for %}, {% endif %} may not appear in Klaviyo’s inline editor
+	•	They must still be written correctly
+	•	Editing happens in Source Code view
+
+⸻
+
+13. Safe Construction Checklist (LLM Must Verify)
+
+Before outputting final email copy, confirm:
+	•	✅ All personalization tags are valid Klaviyo syntax
+	•	✅ All customer-visible fields have default values
+	•	✅ No invented properties
+	•	✅ Event tags only used in event-triggered flows
+	•	✅ Currency values wrapped in currency_format
+	•	✅ Unsubscribe tag included
+
+⸻
+
+14. Example: Fully Safe Email Snippet
+
+Hey {{ first_name|title|default:'friend' }},
+
+We noticed you were checking out a few favorites recently.
+
+{% if person.ViewedItems %}
+Still thinking about {{ person.ViewedItems|default:'something special' }}?
+{% endif %}
+
+If you have questions, we’re always here.
+
+— {{ organization.name }}
+
+{% unsubscribe %}
+
+
+⸻
+
+15. Final Instruction for LLMs
+
+When generating Klaviyo emails: prioritize correctness over creativity.
+A perfectly written email that breaks personalization syntax is a failed output.
