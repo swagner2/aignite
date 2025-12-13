@@ -1,0 +1,236 @@
+Below is the edited version of the instruction set, rewritten so it starts with a single primary table of dynamic content links that Klaviyo uses most often.
+
+This table is designed to be:
+	•	Copied once per client
+	•	Edited with the exact working variables from that client’s Klaviyo Preview
+	•	Treated by the LLM as a canonical “source of truth” for all dynamic content reuse across emails, flows, and projects
+
+Everything after the table references these keys, not hard-coded variables.
+
+⸻
+
+Klaviyo Dynamic Table Blocks
+
+LLM Instruction Set with Client-Editable Dynamic Content Table
+
+⸻
+
+0. Primary Dynamic Content Table (EDIT PER CLIENT)
+
+IMPORTANT
+The user will paste verified working variables from the client’s Klaviyo Preview & Test modal into this table.
+Once populated, the LLM must reuse these exact variables everywhere.
+
+Client Dynamic Content Registry
+
+Key	Description	Client-Specific Value
+ROW_COLLECTION	Array containing multiple products	event.extra.line_items
+ROW_ALIAS	Alias used to reference each item	item
+PRODUCT_TITLE	Product name	{{ item.title }}
+PRODUCT_PRICE	Product price (formatted)	{% currency_format item.price %}
+PRODUCT_URL	Product page URL	{{ item.url }}
+PRODUCT_IMAGE	Primary product image	{{ item.product.images.0.src }}
+PRODUCT_SKU	SKU (optional)	{{ item.sku }}
+PRODUCT_VARIANT	Variant title (optional)	{{ item.variant_title }}
+
+⚠️ Rules
+	•	All values must be copied from Preview & Test
+	•	Dot vs lookup notation must match the client’s event schema
+	•	Do not rename keys — only replace values
+
+⸻
+
+1. Purpose of This Instruction Set
+
+This instruction set enables an LLM to:
+	1.	Correctly choose dynamic vs static table blocks
+	2.	Reliably reuse client-approved dynamic variables
+	3.	Build multi-product emails without breaking Klaviyo rendering
+	4.	Maintain consistency across flows, campaigns, and templates
+
+⸻
+
+2. When Dynamic Table Blocks Are Allowed
+
+Dynamic table blocks may be used only when the trigger event contains multiple products.
+
+Valid Dynamic Table Events
+	•	Placed Order
+	•	Started Checkout
+	•	Fulfilled Order
+	•	Cancelled Order
+	•	Any event with a product array
+
+Invalid (Use Static Table Instead)
+	•	Added to Cart
+	•	Viewed Product
+
+If an event always contains exactly one product → static table only.
+
+⸻
+
+3. Flow Creation Rules (Mandatory)
+
+When creating a flow that uses dynamic tables:
+	1.	Trigger must be a multi-product event
+	2.	Email must contain a table block set to Dynamic
+	3.	Styles → Dynamic must define:
+	•	Row Collection → ROW_COLLECTION
+	•	Row Alias → ROW_ALIAS
+
+If either value is missing or altered → invalid output
+
+⸻
+
+4. Dynamic Table Construction Rules
+
+4.1 Layout Convention (Default)
+
+Column	Content
+Left	Product Image
+Right	Product Details
+
+
+⸻
+
+4.2 Product Title
+
+PRODUCT_TITLE
+
+Resolves to:
+
+{{ item.title }}
+
+Titles should almost always be hyperlinked.
+
+⸻
+
+4.3 Product Title Hyperlinking (Required)
+	•	Highlight → PRODUCT_TITLE
+	•	Link URL → PRODUCT_URL
+
+{{ item.url }}
+
+
+⸻
+
+4.4 Product Price
+
+If numeric (no currency symbol):
+
+PRODUCT_PRICE
+
+Resolves to:
+
+{% currency_format item.price %}
+
+Never display raw numbers for prices.
+
+⸻
+
+5. Dynamic Image Rules
+
+5.1 Image Variable Source
+
+Image variables must originate from the client’s Preview data and be normalized to the row alias.
+
+PRODUCT_IMAGE
+
+Resolves to:
+
+{{ item.product.images.0.src }}
+
+
+⸻
+
+5.2 Image Block Setup
+	•	Cell type → Image
+	•	Image source → Dynamic Image
+	•	Dynamic URL → PRODUCT_IMAGE
+	•	Link address → PRODUCT_URL
+	•	Max width → 250–300px
+
+⸻
+
+6. Optional Fields (Use Only If Present)
+
+These fields may be used only if defined in the Primary Table:
+	•	PRODUCT_SKU
+	•	PRODUCT_VARIANT
+
+If not defined → do not reference them.
+
+⸻
+
+7. Fallback Content Rules (Optional)
+
+Fallback content may be enabled only if the event does not reliably contain products.
+
+Fallback content:
+	•	Must not reference product variables
+	•	Should be generic copy or imagery
+
+⸻
+
+8. Preview & Validation Checklist (Required)
+
+Before finalizing any email:
+	•	Titles render correctly
+	•	Images load
+	•	URLs click properly
+	•	Prices format with currency
+
+If any item fails → revise variables, do not ship.
+
+⸻
+
+9. Static Table Rules (Single-Product Events)
+
+For single-product events:
+	•	Use Static table
+	•	Do not set Row Collection or Alias
+	•	Paste variables directly from Preview & Test
+	•	No looping or dynamic rows
+
+⸻
+
+10. Reuse Rules for LLMs (Critical)
+
+Once the Primary Dynamic Content Table is populated:
+	•	Treat it as global client context
+	•	Reuse variables across all emails and flows
+	•	Do not invent alternate paths
+	•	Do not rename aliases mid-project
+
+This enables:
+	•	Faster builds
+	•	Fewer QA issues
+	•	Consistent dynamic behavior
+
+⸻
+
+11. LLM Failure Conditions (Do Not Output)
+
+Do not produce final output if:
+	•	Event type conflicts with table type
+	•	Primary table is incomplete
+	•	Price lacks currency formatting
+	•	Alias usage is inconsistent
+	•	Variables were not verified in Preview
+
+⸻
+
+12. Final Instruction to the LLM
+
+The Primary Dynamic Content Table is the source of truth.
+Do not guess. Do not improvise. Reuse client-provided variables exactly.
+
+⸻
+
+If you want next, I can:
+	•	Add a second table for static (single-product) events
+	•	Create a client intake form that auto-populates this table
+	•	Convert this into a system prompt or internal SOP
+	•	Build a QA rubric your Klaviyo specialists must pass
+
+Just say the word.
