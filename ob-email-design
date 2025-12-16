@@ -1,0 +1,1525 @@
+# Open Blooms Email Design Guide
+## Klaviyo Email Design System | Visual Specifications Only
+
+**Based on Open Blooms Brand Guidelines**  
+Last Updated: December 15, 2025
+
+---
+
+## Table of Contents
+
+1. Email Canvas & Container Specifications
+2. Typography System for Email
+3. Color Palette for Email
+4. Button & CTA Design Specs
+5. Spacing & Layout Grid
+6. Image Specifications
+7. Email Template Structures
+8. Component Library with Specs
+9. Responsive Design System
+10. Technical Requirements
+11. Quality Checklist
+
+---
+
+## 1. Email Canvas & Container Specifications
+
+### Container Dimensions
+
+**Email Width:**
+- Maximum: `600px` (standard email width)
+- Minimum: `320px` (mobile)
+- Content max-width: `560px` (safe zone with 20px padding)
+
+**Email Padding:**
+```css
+/* Desktop */
+padding-left: 30px;
+padding-right: 30px;
+
+/* Mobile (<480px) */
+padding-left: 20px;
+padding-right: 20px;
+```
+
+**Background Colors:**
+- Email body: `#FFFFFF` (white)
+- Alternate sections: `#F5F5F5` (light gray)
+- Never use more than 2 background colors in email body
+
+**Safe Zones:**
+- Keep all critical CTAs within `560px` width
+- Minimum 20px from container edges on mobile
+- Minimum 40px from top/bottom of email
+
+---
+
+## 2. Typography System for Email
+
+### Font Stack
+
+```css
+font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+             Helvetica, Arial, sans-serif;
+```
+
+### Font Size Scale
+
+**Display/Hero Headlines:**
+```css
+/* Desktop */
+font-size: 42px - 48px;
+font-weight: 700;
+line-height: 1.2;
+letter-spacing: 0.05em;
+text-transform: uppercase; /* For brand headlines */
+
+/* Mobile */
+font-size: 32px - 36px;
+font-weight: 700;
+line-height: 1.2;
+```
+
+**H1 Headers:**
+```css
+/* Desktop */
+font-size: 32px - 36px;
+font-weight: 700;
+line-height: 1.3;
+
+/* Mobile */
+font-size: 28px - 32px;
+font-weight: 700;
+line-height: 1.3;
+```
+
+**H2 Headers:**
+```css
+/* Desktop */
+font-size: 28px - 32px;
+font-weight: 700;
+line-height: 1.3;
+
+/* Mobile */
+font-size: 24px - 28px;
+font-weight: 700;
+line-height: 1.3;
+```
+
+**H3 Subheaders:**
+```css
+/* Desktop */
+font-size: 20px - 24px;
+font-weight: 600;
+line-height: 1.4;
+
+/* Mobile */
+font-size: 18px - 20px;
+font-weight: 600;
+line-height: 1.4;
+```
+
+**Body Text:**
+```css
+/* Desktop */
+font-size: 16px - 18px;
+font-weight: 400;
+line-height: 1.6;
+color: #000000;
+
+/* Mobile */
+font-size: 16px; /* Never below 16px */
+font-weight: 400;
+line-height: 1.6;
+```
+
+**Small Text (Footer, Legal):**
+```css
+/* Desktop */
+font-size: 14px;
+font-weight: 400;
+line-height: 1.5;
+color: #666666;
+
+/* Mobile */
+font-size: 13px; /* Minimum */
+font-weight: 400;
+line-height: 1.5;
+```
+
+### Text Alignment Rules
+
+- Headlines: Center or left-align
+- Body copy: Left-align (improves readability)
+- CTAs: Center-align
+- Footer: Center or left-align
+
+### Case Usage
+
+- Hero headlines: ALL CAPS or Title Case
+- Section headers: Title Case
+- Body text: Sentence case
+- CTAs: Title Case ("Shop Now", "View Collection")
+
+---
+
+## 3. Color Palette for Email
+
+### Primary Colors
+
+**Black**
+```css
+color: #000000;
+```
+- Usage: Primary text, headlines, buttons
+- Weight: Headlines (700), body (400)
+
+**White**
+```css
+color: #FFFFFF;
+```
+- Usage: Background, button text on dark buttons
+- Text on images: Use white with dark overlay
+
+### Background Colors
+
+**White**
+```css
+background-color: #FFFFFF;
+```
+- Primary email background
+
+**Light Gray**
+```css
+background-color: #F5F5F5;
+```
+- Alternate section backgrounds
+- Visual separation without harsh contrast
+
+**Medium Gray**
+```css
+border-color: #CCCCCC;
+border-width: 1px;
+```
+- Borders, dividers, subtle lines
+
+### Text Colors
+
+**Primary Text**
+```css
+color: #000000;
+```
+
+**Secondary Text**
+```css
+color: #333333;
+```
+
+**Tertiary Text (Footer, Less Important)**
+```css
+color: #666666;
+```
+
+### Accent Colors (Use Sparingly)
+
+**Red/Coral (Urgency)**
+```css
+color: #E63946;
+```
+- Sale badges, urgent CTAs, countdown elements
+- Maximum: 1-2 uses per email
+
+**Green (Fresh/New)**
+```css
+color: #4A7C2C;
+```
+- "Fresh" messaging, seasonal accents
+- Occasional use for spring/nature themes
+
+### Image Overlay
+
+**Dark Overlay (for text readability)**
+```css
+background: rgba(0, 0, 0, 0.3); /* Light overlay */
+background: rgba(0, 0, 0, 0.5); /* Medium overlay */
+background: rgba(0, 0, 0, 0.7); /* Heavy overlay */
+```
+
+---
+
+## 4. Button & CTA Design Specs
+
+### Primary Button
+
+**Visual Specifications:**
+```css
+/* Desktop & Mobile */
+background-color: #000000;
+color: #FFFFFF;
+font-size: 16px;
+font-weight: 600;
+text-align: center;
+text-decoration: none;
+text-transform: capitalize; /* Title Case */
+padding: 14px 32px;
+border-radius: 4px;
+border: none;
+display: inline-block;
+min-width: 180px;
+min-height: 44px; /* Touch target */
+
+/* Hover state (web clients) */
+background-color: #1A1A1A;
+transition: background-color 0.3s ease;
+```
+
+**Mobile Adjustments:**
+```css
+/* Optional: Full-width on narrow screens */
+@media (max-width: 400px) {
+  width: 100%;
+  max-width: 100%;
+}
+```
+
+### Secondary Button
+
+**Visual Specifications:**
+```css
+background-color: transparent;
+color: #000000;
+font-size: 16px;
+font-weight: 600;
+text-align: center;
+text-decoration: none;
+text-transform: capitalize;
+padding: 12px 28px;
+border-radius: 4px;
+border: 2px solid #000000;
+display: inline-block;
+min-height: 44px;
+
+/* Hover state */
+background-color: #000000;
+color: #FFFFFF;
+transition: all 0.3s ease;
+```
+
+### Text Links
+
+**Style:**
+```css
+color: #000000;
+text-decoration: underline;
+font-weight: 500;
+
+/* Hover */
+text-decoration: none;
+```
+
+**Footer Links:**
+```css
+color: #666666;
+text-decoration: underline;
+font-size: 14px;
+```
+
+### Button Spacing
+
+```css
+/* Around buttons */
+margin-top: 30px;
+margin-bottom: 30px;
+
+/* Between multiple buttons */
+margin-right: 15px; /* Horizontal */
+margin-bottom: 15px; /* Stacked */
+```
+
+### Button Examples
+
+**Primary CTA:**
+- Height: 44px minimum
+- Width: 180px minimum (auto for longer text)
+- Font: 16px, weight 600
+- Color: White on black
+
+**Secondary CTA:**
+- Height: 44px minimum
+- Width: Auto based on content
+- Font: 16px, weight 600
+- Color: Black with black border
+
+---
+
+## 5. Spacing & Layout Grid
+
+### Email Grid System
+
+**Column Structure:**
+- Full width: 600px (1 column)
+- Half width: 280px each (2 columns with 20px gutter)
+- Third width: 186px each (3 columns with 21px gutters)
+
+**Gutter Sizes:**
+- Between columns: 20px
+- Between rows: 20px
+- Mobile: Reduce to 15px
+
+### Vertical Spacing Scale
+
+**Major Sections:**
+```css
+margin-top: 60px;
+margin-bottom: 60px;
+
+/* Mobile */
+margin-top: 40px;
+margin-bottom: 40px;
+```
+
+**Content Blocks:**
+```css
+margin-top: 40px;
+margin-bottom: 40px;
+
+/* Mobile */
+margin-top: 30px;
+margin-bottom: 30px;
+```
+
+**Between Elements:**
+```css
+margin-bottom: 20px; /* Paragraphs */
+margin-bottom: 30px; /* After headlines */
+margin-bottom: 15px; /* Between related items */
+```
+
+### Module Padding
+
+**Header:**
+```css
+padding-top: 30px;
+padding-bottom: 30px;
+
+/* Mobile */
+padding-top: 20px;
+padding-bottom: 20px;
+```
+
+**Hero Section:**
+```css
+padding-top: 40px;
+padding-bottom: 50px;
+
+/* Mobile */
+padding-top: 30px;
+padding-bottom: 40px;
+```
+
+**Content Sections:**
+```css
+padding-top: 50px;
+padding-bottom: 50px;
+
+/* Mobile */
+padding-top: 40px;
+padding-bottom: 40px;
+```
+
+**Footer:**
+```css
+padding-top: 40px;
+padding-bottom: 40px;
+
+/* Mobile */
+padding-top: 30px;
+padding-bottom: 30px;
+```
+
+### Internal Element Padding
+
+**Cards/Boxes:**
+```css
+padding: 20px;
+
+/* Mobile */
+padding: 15px;
+```
+
+**Text Containers:**
+```css
+padding-left: 20px;
+padding-right: 20px;
+```
+
+---
+
+## 6. Image Specifications
+
+### File Formats
+
+- **JPEG:** Product photos, lifestyle images, backgrounds
+- **PNG:** Logos, graphics with transparency
+- **GIF:** Animated elements (use sparingly)
+
+### File Size Limits
+
+- Individual images: **200KB maximum**
+- Total email: **<1MB total** (all images combined)
+- Hero images: **150-200KB**
+- Product cards: **80-120KB each**
+- Logos: **20-50KB**
+
+### Image Dimensions
+
+**Full-Width Hero:**
+```
+Width: 600px
+Height: 400px (3:2 ratio)
+Actual size: 1200px x 800px (2x for retina)
+```
+
+**Half-Width (2-Up Layout):**
+```
+Width: 280px
+Height: 373px (3:4 ratio for products)
+Actual size: 560px x 746px
+```
+
+**Third-Width (3-Up Layout):**
+```
+Width: 186px
+Height: 248px (3:4 ratio)
+Actual size: 372px x 496px
+```
+
+**Logo:**
+```
+Width: 150px - 180px
+Height: Auto (maintain ratio)
+Actual size: 300px - 360px wide
+```
+
+**Square Images:**
+```
+Width: 280px
+Height: 280px (1:1 ratio)
+Actual size: 560px x 560px
+```
+
+### Image Quality Settings
+
+- JPEG compression: 70-85%
+- PNG: Optimize with tools like TinyPNG
+- Resolution: 72 DPI (web standard)
+- Color space: RGB (not CMYK)
+
+### Alt Text Requirements
+
+**Rules:**
+- Every image MUST have alt text
+- Describe image clearly and concisely
+- Include product name for products
+- Keep under 125 characters
+- Logo: alt="Open Blooms"
+
+**Examples:**
+```html
+<img src="roses.jpg" alt="Red roses bouquet arrangement" />
+<img src="hero.jpg" alt="Open Blooms holiday collection" />
+<img src="logo.png" alt="Open Blooms" />
+```
+
+### Image Treatment
+
+**Borders:**
+```css
+border: 1px solid #E5E5E5; /* Optional for product cards */
+border-radius: 8px; /* Optional rounded corners */
+```
+
+**Shadows (Use Sparingly):**
+```css
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+```
+
+---
+
+## 7. Email Template Structures
+
+### Template A: Hero + Product Grid
+
+```
+┌────────────────────────────────────┐
+│          HEADER (Logo)             │
+├────────────────────────────────────┤
+│                                    │
+│       HERO IMAGE + TEXT            │
+│         [CTA Button]               │
+│                                    │
+├────────────────────────────────────┤
+│                                    │
+│    [Img]    [Img]    [Img]         │
+│    Name     Name     Name          │
+│    Price    Price    Price         │
+│                                    │
+├────────────────────────────────────┤
+│       [Secondary CTA]              │
+├────────────────────────────────────┤
+│          FOOTER                    │
+└────────────────────────────────────┘
+```
+
+**Measurements:**
+- Header: 30px padding top/bottom
+- Hero: 600px x 400px image
+- Grid: 3 columns @ 186px each
+- Footer: 40px padding top/bottom
+
+---
+
+### Template B: Split Hero (Text + Image)
+
+```
+┌────────────────────────────────────┐
+│          HEADER (Logo)             │
+├────────────────────────────────────┤
+│                                    │
+│  ┌──────────┐  ┌──────────┐        │
+│  │          │  │  Hero    │        │
+│  │  Text    │  │  Image   │        │
+│  │  [CTA]   │  │          │        │
+│  └──────────┘  └──────────┘        │
+│                                    │
+├────────────────────────────────────┤
+│        CONTENT SECTION             │
+├────────────────────────────────────┤
+│          FOOTER                    │
+└────────────────────────────────────┘
+```
+
+**Measurements:**
+- Each column: 280px wide
+- Gutter: 20px
+- Text column padding: 20px internal
+
+---
+
+### Template C: Stacked Content
+
+```
+┌────────────────────────────────────┐
+│          HEADER (Logo)             │
+├────────────────────────────────────┤
+│        Hero Headline               │
+│        Hero Subhead                │
+│        [Primary CTA]               │
+├────────────────────────────────────┤
+│       [Product Image]              │
+│       Product Name                 │
+│       Description                  │
+│       [Add to Cart CTA]            │
+├────────────────────────────────────┤
+│    ┌──────┐  ┌──────┐             │
+│    │Trust │  │Trust │             │
+│    │Badge │  │Badge │             │
+│    └──────┘  └──────┘             │
+├────────────────────────────────────┤
+│          FOOTER                    │
+└────────────────────────────────────┘
+```
+
+**Measurements:**
+- Full-width sections: 600px
+- Trust badges: 280px each (2-up)
+- Vertical spacing: 40-50px between sections
+
+---
+
+### Template D: Text-Heavy (Minimal Images)
+
+```
+┌────────────────────────────────────┐
+│          HEADER (Logo)             │
+├────────────────────────────────────┤
+│         Main Headline              │
+│                                    │
+│      Body paragraph text           │
+│      continues here with           │
+│      proper line spacing           │
+│                                    │
+│         [Primary CTA]              │
+├────────────────────────────────────┤
+│       Subheader                    │
+│                                    │
+│      More body text with           │
+│      spacing and formatting        │
+│                                    │
+├────────────────────────────────────┤
+│          FOOTER                    │
+└────────────────────────────────────┘
+```
+
+**Measurements:**
+- Text max-width: 500px (centered)
+- Paragraph spacing: 15-20px
+- Section breaks: 40-50px
+
+---
+
+## 8. Component Library with Specs
+
+### HEADER MODULE
+
+**Dimensions:**
+```
+Height: 80px - 100px
+Logo width: 150px - 180px
+Background: #FFFFFF
+Border-bottom: 1px solid #E5E5E5 (optional)
+```
+
+**Padding:**
+```css
+padding-top: 30px;
+padding-bottom: 30px;
+
+/* Mobile */
+padding-top: 20px;
+padding-bottom: 20px;
+```
+
+**Logo Specifications:**
+- Format: PNG with transparency
+- Size: 150px x auto (maintain ratio)
+- Position: Center or left-align
+- Link: Always to homepage
+- Alt text: "Open Blooms"
+
+---
+
+### HERO MODULE - Full Width
+
+**Dimensions:**
+```
+Image: 600px x 400px (3:2 ratio)
+Actual: 1200px x 800px (2x)
+Container: Full width (600px)
+```
+
+**Text Overlay:**
+```css
+/* Overlay background */
+background: rgba(0, 0, 0, 0.4);
+
+/* Text container */
+padding: 40px;
+text-align: center;
+
+/* Mobile */
+padding: 30px 20px;
+```
+
+**Typography:**
+```css
+/* Headline */
+font-size: 42px; /* Desktop */
+font-size: 32px; /* Mobile */
+font-weight: 700;
+color: #FFFFFF;
+text-transform: uppercase;
+margin-bottom: 15px;
+
+/* Subhead */
+font-size: 18px;
+font-weight: 400;
+color: #FFFFFF;
+margin-bottom: 30px;
+```
+
+---
+
+### PRODUCT CARD - 2-Up Layout
+
+**Dimensions:**
+```
+Card width: 280px
+Image: 280px x 373px (3:4 ratio)
+Gutter between: 20px
+```
+
+**Card Structure:**
+```css
+/* Card container */
+width: 280px;
+background: #FFFFFF;
+border: 1px solid #E5E5E5; /* Optional */
+border-radius: 8px; /* Optional */
+
+/* Image */
+width: 280px;
+height: 373px;
+display: block;
+
+/* Text container */
+padding: 15px;
+
+/* Product name */
+font-size: 18px;
+font-weight: 600;
+color: #000000;
+margin-bottom: 8px;
+
+/* Price */
+font-size: 16px;
+font-weight: 400;
+color: #333333;
+margin-bottom: 15px;
+
+/* CTA button */
+/* Use secondary button specs */
+```
+
+**Mobile Behavior:**
+- Stack to single column
+- Maintain 280px width (or full width with padding)
+
+---
+
+### PRODUCT GRID - 3-Up Layout
+
+**Dimensions:**
+```
+Card width: 186px each
+Total: (186px × 3) + (21px × 2) = 600px
+Gutter: 21px between cards
+```
+
+**Card Structure:**
+```css
+width: 186px;
+background: #FFFFFF;
+
+/* Image */
+width: 186px;
+height: 248px;
+```
+
+**Mobile Behavior:**
+- Stack to single column
+- Cards expand to full width with padding
+
+---
+
+### TRUST BADGES MODULE
+
+**Layout Options:**
+
+**Option A: Horizontal Row**
+```
+┌──────┐  ┌──────┐  ┌──────┐  ┌──────┐
+│Icon  │  │Icon  │  │Icon  │  │Icon  │
+│Text  │  │Text  │  │Text  │  │Text  │
+└──────┘  └──────┘  └──────┘  └──────┘
+```
+
+**Option B: 2×2 Grid**
+```
+┌──────┐  ┌──────┐
+│Icon  │  │Icon  │
+│Text  │  │Text  │
+└──────┘  └──────┘
+
+┌──────┐  ┌──────┐
+│Icon  │  │Icon  │
+│Text  │  │Text  │
+└──────┘  └──────┘
+```
+
+**Specifications:**
+```css
+/* Container */
+background: #F5F5F5;
+padding: 30px 20px;
+
+/* Icon */
+width: 40px;
+height: 40px;
+margin-bottom: 10px;
+
+/* Text */
+font-size: 14px;
+font-weight: 400;
+color: #333333;
+text-align: center;
+
+/* Spacing between badges */
+margin-right: 20px; /* Horizontal */
+margin-bottom: 20px; /* Grid */
+```
+
+---
+
+### REVIEW/SOCIAL PROOF MODULE
+
+**Dimensions:**
+```
+Container: Full width (600px)
+Background: #F5F5F5
+Padding: 40px 30px
+```
+
+**Star Rating:**
+```css
+/* Star icons */
+font-size: 18px;
+color: #FFD700; /* Gold */
+/* or */
+color: #000000; /* Black */
+
+margin-bottom: 10px;
+```
+
+**Review Text:**
+```css
+font-size: 16px;
+font-style: italic;
+color: #000000;
+line-height: 1.6;
+margin-bottom: 10px;
+```
+
+**Reviewer Name:**
+```css
+font-size: 14px;
+font-weight: 600;
+color: #666666;
+```
+
+---
+
+### CTA BLOCK MODULE
+
+**Dimensions:**
+```
+Container: Full width (600px)
+Background: #FFFFFF or #F5F5F5
+Padding: 50px 30px
+```
+
+**Structure:**
+```css
+/* Headline */
+font-size: 28px;
+font-weight: 700;
+text-align: center;
+margin-bottom: 15px;
+
+/* Supporting text */
+font-size: 16px;
+text-align: center;
+margin-bottom: 30px;
+
+/* Button */
+/* Use primary button specs */
+margin: 0 auto; /* Center */
+```
+
+---
+
+### CART PREVIEW MODULE
+
+**Dimensions:**
+```
+Container: 280px - 400px wide
+Background: #FFFFFF
+Border: 1px solid #E5E5E5
+Padding: 20px
+Border-radius: 8px
+```
+
+**Layout:**
+```
+┌──────────────────┐
+│  [Product Img]   │
+│                  │
+│  Product Name    │
+│  Quantity: 1     │
+│  Price: $XX.XX   │
+│                  │
+│  [CTA Button]    │
+└──────────────────┘
+```
+
+**Specifications:**
+```css
+/* Product image */
+width: 240px - 360px;
+height: auto (maintain 3:4 ratio);
+margin-bottom: 15px;
+
+/* Product details */
+font-size: 16px;
+line-height: 1.5;
+margin-bottom: 20px;
+
+/* Button */
+/* Use primary button specs */
+width: 100%;
+```
+
+---
+
+### FOOTER MODULE
+
+**Dimensions:**
+```
+Width: Full width (600px)
+Background: #FFFFFF or #F5F5F5
+Padding: 40px 30px
+Border-top: 1px solid #E5E5E5 (optional)
+```
+
+**Layout:**
+```
+┌────────────────────────────────┐
+│        Quick Links             │
+│  Link | Link | Link | Link     │
+│                                │
+│    [Social Icons]              │
+│    ○  ○  ○  ○                  │
+│                                │
+│    Company Name                │
+│    Street Address              │
+│    City, State ZIP             │
+│    Phone Number                │
+│                                │
+│    Unsubscribe | View Browser  │
+└────────────────────────────────┘
+```
+
+**Specifications:**
+```css
+/* Section headers */
+font-size: 14px;
+font-weight: 600;
+color: #000000;
+text-transform: uppercase;
+margin-bottom: 10px;
+
+/* Links */
+font-size: 14px;
+color: #666666;
+text-decoration: underline;
+margin-right: 15px;
+
+/* Social icons */
+width: 32px;
+height: 32px;
+margin-right: 10px;
+color: #000000;
+
+/* Address/contact */
+font-size: 14px;
+color: #666666;
+line-height: 1.6;
+
+/* Legal links */
+font-size: 12px;
+color: #999999;
+```
+
+---
+
+### FREE SHIPPING THRESHOLD BAR
+
+**Dimensions:**
+```
+Width: Full width (600px)
+Height: 80px - 100px
+Background: #F5F5F5
+Padding: 20px 30px
+```
+
+**Progress Bar:**
+```css
+/* Container */
+width: 100%;
+height: 8px;
+background: #E5E5E5;
+border-radius: 4px;
+margin: 15px 0;
+
+/* Fill */
+height: 8px;
+background: #000000;
+border-radius: 4px;
+/* Width: Dynamic based on cart value */
+```
+
+**Text:**
+```css
+font-size: 16px;
+font-weight: 600;
+text-align: center;
+color: #000000;
+```
+
+---
+
+### OCCASION GRID MODULE
+
+**2×2 Layout:**
+```
+┌───────────┐  ┌───────────┐
+│   Image   │  │   Image   │
+│   Label   │  │   Label   │
+└───────────┘  └───────────┘
+
+┌───────────┐  ┌───────────┐
+│   Image   │  │   Image   │
+│   Label   │  │   Label   │
+└───────────┘  └───────────┘
+```
+
+**Specifications:**
+```css
+/* Each tile */
+width: 280px;
+height: 280px; /* Square ratio */
+margin-right: 20px; /* Last: 0 */
+margin-bottom: 20px;
+
+/* Image */
+width: 280px;
+height: 280px;
+
+/* Overlay */
+background: rgba(0, 0, 0, 0.4);
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+
+/* Label */
+font-size: 24px;
+font-weight: 700;
+color: #FFFFFF;
+text-align: center;
+position: relative;
+z-index: 1;
+```
+
+---
+
+## 9. Responsive Design System
+
+### Breakpoints
+
+```css
+/* Mobile */
+@media screen and (max-width: 480px) {
+  /* Single column layout */
+  /* Increased touch targets */
+  /* Scaled typography */
+}
+
+/* Tablet */
+@media screen and (min-width: 481px) and (max-width: 640px) {
+  /* 2-column layouts */
+  /* Moderate spacing */
+}
+
+/* Desktop */
+@media screen and (min-width: 641px) {
+  /* Full layout */
+  /* Multi-column grids */
+}
+```
+
+### Mobile Adjustments
+
+**Typography Scale:**
+```css
+/* Reduce by 15-25% */
+h1: 48px → 36px
+h2: 32px → 28px
+h3: 24px → 20px
+body: 16px → 16px (maintain)
+```
+
+**Spacing Scale:**
+```css
+/* Reduce by 25-30% */
+Section padding: 60px → 40px
+Element spacing: 40px → 30px
+```
+
+**Layout Changes:**
+```css
+/* Multi-column → Single column */
+3-up grid → Stack vertically
+2-up grid → Stack vertically
+Split hero → Stack (text above image)
+```
+
+**Button Adjustments:**
+```css
+/* Optional: Full-width on narrow */
+@media (max-width: 400px) {
+  button {
+    width: 100%;
+    display: block;
+  }
+}
+```
+
+### Touch Target Requirements
+
+**Minimum Sizes:**
+- Buttons: 44px × 44px
+- Links: 44px × 44px (with padding)
+- Tappable areas: 44px minimum in any dimension
+
+### Image Stacking (Mobile)
+
+**Desktop 3-up grid:**
+```
+[Image] [Image] [Image]
+```
+
+**Mobile stacked:**
+```
+[Image]
+[Image]
+[Image]
+```
+
+---
+
+## 10. Technical Requirements
+
+### HTML Structure
+
+**Table-Based Layout:**
+```html
+<table width="600" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td>Content here</td>
+  </tr>
+</table>
+```
+
+**Required Attributes:**
+- All styles inline: `style="color: #000;"`
+- All images have `alt` text
+- All links have `href` attributes
+- Table dimensions explicit: `width="600"`
+
+### CSS Rules
+
+**Allowed:**
+- `font-family`, `font-size`, `font-weight`
+- `color`, `background-color`
+- `padding`, `margin`
+- `width`, `height`
+- `text-align`, `vertical-align`
+- `border`, `border-radius`
+
+**Avoid:**
+- `position: absolute/fixed`
+- `float`
+- `flexbox`
+- `grid`
+- External stylesheets
+- JavaScript
+
+### Image Coding
+
+```html
+<img 
+  src="https://cdn.example.com/image.jpg" 
+  alt="Product description" 
+  width="600" 
+  height="400" 
+  style="display: block; border: 0; width: 100%; max-width: 600px; height: auto;"
+/>
+```
+
+**Required Attributes:**
+- `src`: HTTPS URL only
+- `alt`: Descriptive text
+- `width` and `height`: Explicit dimensions
+- `style`: Inline CSS for responsiveness
+
+### Button Coding
+
+```html
+<table cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td style="background-color: #000000; border-radius: 4px; padding: 14px 32px; text-align: center;">
+      <a href="https://example.com" style="color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none; display: inline-block;">
+        Shop Now
+      </a>
+    </td>
+  </tr>
+</table>
+```
+
+### Responsive Images
+
+```html
+<img 
+  src="image.jpg" 
+  width="600" 
+  style="width: 100%; max-width: 600px; height: auto; display: block;"
+/>
+```
+
+### Media Queries
+
+```html
+<style type="text/css">
+  @media screen and (max-width: 480px) {
+    .mobile-text { font-size: 28px !important; }
+    .mobile-hide { display: none !important; }
+    .mobile-full { width: 100% !important; }
+  }
+</style>
+```
+
+### Dark Mode Support
+
+```html
+<style type="text/css">
+  @media (prefers-color-scheme: dark) {
+    .darkmode-bg { background-color: #1a1a1a !important; }
+    .darkmode-text { color: #ffffff !important; }
+  }
+</style>
+```
+
+### Klaviyo Dynamic Tags
+
+**Personalization:**
+```django
+{{ first_name|default:"Friend" }}
+{{ person.email }}
+```
+
+**Product Data:**
+```django
+{{ event.extra.ProductName }}
+{{ event.extra.ItemPrice }}
+{{ event.extra.ImageURL }}
+```
+
+**Conditionals:**
+```django
+{% if person.cart_value > 100 %}
+  High-value content
+{% else %}
+  Standard content
+{% endif %}
+```
+
+### Email Size Limits
+
+**Total Size:**
+- HTML code: <102KB (Gmail clips at 102KB)
+- Total with images: <1MB
+- Number of images: 10-15 maximum
+
+**Optimization:**
+- Minify HTML (remove extra spaces)
+- Compress images before upload
+- Combine similar styles
+- Remove unnecessary code
+
+---
+
+## 11. Quality Checklist
+
+### Design Verification
+
+**Visual Check:**
+- [ ] Logo present and correct size (150-180px)
+- [ ] Brand colors used correctly (#000, #FFF, #F5F5F5)
+- [ ] Typography matches specs (fonts, sizes, weights)
+- [ ] Buttons styled correctly (primary: black/white)
+- [ ] Images optimized (<200KB each)
+- [ ] Alt text on all images
+- [ ] Spacing consistent (40-60px sections)
+- [ ] Hierarchy clear and logical
+
+**Layout Check:**
+- [ ] Container width: 600px
+- [ ] Safe zones respected (20px minimum)
+- [ ] Grid alignment correct
+- [ ] Gutters consistent (20px)
+- [ ] No elements cut off or overlapping
+
+**Responsive Check:**
+- [ ] Scales properly on mobile
+- [ ] Text readable (min 16px body)
+- [ ] Touch targets adequate (44px min)
+- [ ] Images stack correctly
+- [ ] Buttons accessible
+- [ ] No horizontal scrolling
+
+### Technical Verification
+
+**Code Check:**
+- [ ] All styles inline
+- [ ] Table-based layout
+- [ ] No external CSS files
+- [ ] No JavaScript
+- [ ] Explicit image dimensions
+- [ ] HTTPS for all images
+- [ ] Alt text on all images
+- [ ] Responsive images coded
+
+**Email Client Testing:**
+- [ ] Gmail (web, iOS, Android)
+- [ ] Apple Mail (iOS, macOS)
+- [ ] Outlook (Windows, Mac, Web)
+- [ ] Yahoo Mail
+- [ ] Preview looks correct
+
+**Mobile Testing:**
+- [ ] iPhone (multiple sizes)
+- [ ] Android (multiple sizes)
+- [ ] Portrait orientation
+- [ ] Landscape orientation (if relevant)
+
+**Dark Mode Testing:**
+- [ ] Logo visible in dark mode
+- [ ] Text readable in dark mode
+- [ ] Images display properly
+- [ ] No harsh inversions
+
+### File Size Verification
+
+- [ ] Individual images <200KB
+- [ ] Total email <1MB
+- [ ] HTML code <102KB
+- [ ] Images compressed
+- [ ] Unnecessary code removed
+
+### Link Verification
+
+- [ ] All CTAs functional
+- [ ] All navigation links work
+- [ ] Logo links to homepage
+- [ ] Social icons link correctly
+- [ ] Unsubscribe link present
+- [ ] View in browser link present
+- [ ] UTM parameters added (if required)
+
+### Accessibility Check
+
+- [ ] Alt text on all images
+- [ ] Color contrast meets WCAG AA (4.5:1)
+- [ ] Text readable without images
+- [ ] Semantic structure (headers, paragraphs)
+- [ ] Links descriptive (not "click here")
+
+---
+
+## Quick Reference Charts
+
+### Typography Scale
+
+| Element | Desktop | Mobile | Weight |
+|---------|---------|--------|--------|
+| Hero | 42-48px | 32-36px | 700 |
+| H1 | 32-36px | 28-32px | 700 |
+| H2 | 28-32px | 24-28px | 700 |
+| H3 | 20-24px | 18-20px | 600 |
+| Body | 16-18px | 16px | 400 |
+| Small | 14px | 13px | 400 |
+
+### Spacing Scale
+
+| Context | Desktop | Mobile |
+|---------|---------|--------|
+| Major sections | 60px | 40px |
+| Content blocks | 40px | 30px |
+| Between elements | 20-30px | 15-20px |
+| Paragraph spacing | 15px | 15px |
+
+### Image Dimensions
+
+| Type | Width | Height | Ratio |
+|------|-------|--------|-------|
+| Hero | 600px | 400px | 3:2 |
+| Product (2-up) | 280px | 373px | 3:4 |
+| Product (3-up) | 186px | 248px | 3:4 |
+| Square | 280px | 280px | 1:1 |
+| Logo | 150-180px | Auto | - |
+
+### Button Specs
+
+| Type | BG Color | Text Color | Padding | Border |
+|------|----------|------------|---------|--------|
+| Primary | #000000 | #FFFFFF | 14px 32px | None |
+| Secondary | Transparent | #000000 | 12px 28px | 2px solid #000 |
+
+---
+
+## File Naming Conventions
+
+### Images
+
+**Format:**
+```
+category-descriptor-size.jpg
+```
+
+**Examples:**
+```
+hero-holiday-600x400.jpg
+product-roses-280x373.jpg
+logo-primary-180w.png
+icon-trust-delivery-40x40.png
+```
+
+### Email Templates
+
+**Format:**
+```
+flow-name_email-number_version.html
+```
+
+**Examples:**
+```
+welcome_email-1_v2.html
+abandoned-cart_email-2_v1.html
+holiday-campaign_dec2025.html
+```
+
+---
+
+## Version Control
+
+**Version:** 1.0  
+**Last Updated:** December 15, 2025  
+**Next Review:** Quarterly or when brand guidelines update
+
+**Changelog:**
+- v1.0 (Dec 2025): Initial design guide created from brand standards
+
+---
+
+## Support Resources
+
+**Brand Guidelines:** Open Blooms Brand Guide  
+**Platform:** Klaviyo Email Builder  
+**Testing Tools:** Litmus, Email on Acid (recommended)  
+**Image Optimization:** TinyPNG, ImageOptim  
+
+---
+
+**END OF EMAIL DESIGN GUIDE**
