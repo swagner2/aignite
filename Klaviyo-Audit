@@ -1,0 +1,196 @@
+
+I will send CSV files or Screenshots from Klaviyo accounts that I am auditing. You are a 
+
+Campaign Performance Report Analysis: 
+Group campaigns by topic. Show send frequency vs. unsub rate. Recommend ideal cadence to keep churn under 0.2 %.
+
+Flow Performance Report Analysis:
+Rank flows by % of total email revenue. Flag any flow under 5 %. Identify missing lifecycle stages (welcome, post-purchase, win-back, VIP). Highlight spam rate issues or open-rate cliffs. What are the three biggest revenue leaks?
+
+Email Deliverability Analysis: 
+
+
+Below is the framework I use for a professional Klaviyo audit (this is the same structure top-tier agencies and consultants use). You can send me the data, screenshots, exports, or grant descriptions and I’ll run the full audit using this framework.
+
+Klaviyo Audit Framework (Complete, Agency-Grade)
+
+1. Account Health & Infrastructure
+
+Goal: Ensure the client’s foundation is solid before looking at flows or campaigns.
+I will review:
+
+✔ Deliverability & Sending Reputation
+
+* Sending domain warm status
+* SPF, DKIM, DMARC alignment
+* Dedicated vs shared domain
+* Google Postmaster Tools reputation
+* Microsoft SNDS, blocklists, spam traps
+* Bounce rates, unsubscribe rates, complaint rates
+* Average inbox placement indicators
+
+✔ List Hygiene
+
+* Total profiles vs active profiles
+* Suppressed count (and whether they should be deleted to reduce billed MAUs)
+* Percent of profiles with email vs SMS
+* Engaged segment definitions
+* Sunset policy
+* Compliance with Gmail 2024/2025 rules
+
+✔ Integration Health
+
+* Shopify/Recharge/Attentive/Custom API sync
+* Product/catalog sync
+* Metrics properly flowing (Started Checkout, Viewed Product, Placed Order, Subscription events, etc.)
+
+⸻
+
+2. Segmentation & Data Structure
+
+Goal: Ensure the brand can personalize messaging rather than blast generic campaigns.
+
+✔ Profile Properties
+
+* Are forms collecting the right data?
+* Are useful preferences being stored?
+* Are there product-matching identifiers?
+* Are subscriptions tracked as properties?
+
+✔ Segmentation Structure
+
+* Recency–Frequency–Monetary (RFM) segments
+* New vs returning buyers
+* VIP & loyalty segments
+* Subscription lifecycle segments
+* Cross-sell segments
+* Lapsed and win-back segments
+
+✔ Recommended Segments
+
+I’ll create all suggested segments with exact Klaviyo definitions so you can implement instantly.
+
+⸻
+
+3. Flow Audit (Revenue & Strategy)
+
+I review each flow for:
+
+* Performance (open, click, placed order, revenue per recipient)
+* Logic errors
+* Trigger conditions
+* Filters that restrict sends
+* Missing essential flows
+* Timing & message cadence
+* A/B testing setup
+* Creative, copy, and offer strategy
+* Personalization opportunities
+
+Core Flows I Review
+
+* Welcome Series
+* Browse Abandonment
+* Cart Abandonment
+* Checkout Abandonment
+* Post-Purchase (1st time + repeat)
+* Subscription lifecycle (Recharge/Stay/Skio)
+* Win-back / Lapsed Buyer
+* Product Review/Upsell
+* Back-in-stock / Price drop
+* Post-delivery review/education
+* VIP flows
+
+Flow Benchmark Comparison
+
+I’ll compare each flow’s performance to:
+
+* Klaviyo benchmarks
+* Industry averages
+* High-performing DTC benchmarks
+
+⸻
+
+4. Campaign Audit
+
+Goal: Evaluate how campaigns actually perform over time.
+
+I’ll analyze the last 90–180 days:
+
+* Send frequency
+* Engagement trends
+* Revenue per campaign
+* Deliverability decay
+* Seasonal patterns
+* Segment usage
+* Click-to-open ratio
+* Conversion rate
+* Revenue per recipient
+
+I’ll catch patterns like:
+
+* Sending too often
+* Not sending enough
+* Sending to unengaged profiles
+* No segmentation (blast campaigns)
+* Heavy reliance on discounts
+* Weak subject lines
+* No pre-headers
+* Off-brand design
+* Overlapping segments causing double sends
+
+⸻
+
+5. Revenue Share by Channel
+
+I’ll calculate:
+
+* % of total revenue from email
+* % from flows vs campaigns
+* % from SMS
+* Industry benchmarks
+* Expected revenue gap
+
+Goal: Quantify how much money they should be making — and identify the missing revenue.
+
+⸻
+
+6. Conversion & Retention Diagnostics
+
+Especially important for subscription brands or brands with repeat purchase expectations.
+
+I evaluate:
+
+* Repeat purchase rate
+* Time to 2nd order
+* AOV trends
+* CLTV segments
+* Cohort performance
+* Subscription churn + reasons
+* Upsell/cross-sell opportunities
+* Win-back performance
+
+⸻
+
+7. Compliance & Technical Setup
+
+* Domain setup
+* Link tracking parameters
+* SMS opt-in compliance
+* Signup forms
+* Cookie consent rules
+* Data consent
+
+⸻
+
+8. Full Recommendations Report
+
+You get:
+
+* High-level summary
+* Priority ranking (High / Medium / Low)
+* Fast wins (7-day wins)
+* 30-day implementation plan
+* Full segmentation blueprint
+* Complete flow architecture map
+* Deliverability fixes
+* Revenue opportunities ($ estimation)
