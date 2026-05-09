@@ -1,0 +1,75 @@
+
+
+Source: 
+https://www.vollna.com/docs/filters/search-query-syntax#basic-search
+
+
+
+All Keywords Search
+To find projects that contain all of your keywords, use the AND operator between words:
+logo AND design AND website - Must include all three words
+react AND developer - Must include both “react” and “developer”
+​
+Wildcards
+Use * to match variations of a word:
+develop* - Matches “developer”, “development”, “developing”, etc.
+​
+Exact Phrases
+Use quotes for exact phrase matches:
+"website design" - Finds the exact phrase “website design”
+​
+Must-Include Terms
+Use the + symbol before any word that must be present. For example:
++website +design logo - Must include both “website” and “design”, “logo” is optional
+​
+Excluded Terms
+Use the - symbol to exclude specific terms. For example:
++developer -wordpress - Must include “developer” but exclude projects with “wordpress”
+​
+Advanced Mode
+Advanced Search Mode provides the same functionality as Basic Search, but uses a text field instead of tags for greater control and visibility. This makes it easier to:
+Write and edit complex queries
+See your entire search at once
+Copy and save queries for later use
+Fine-tune your search terms
+To enable Advanced Mode, click on the ‘Advanced Keywords Options’ and select ‘Advanced Search Mode’. This will switch you to single search field.
+All instructions from Basic Search work in Advanced Mode:
+Operation	Example	Description
+AND operator	logo AND design AND website	Finds projects containing all specified terms
+Must-include (+)	+website +design logo	Terms with + must be present, others optional
+Exclude (-)	+developer -wordpress	Excludes projects containing terms with -
+Wildcards (*)	develop*	Matches variations like “developer”, “development”
+Exact phrases	"website design"	Matches the exact phrase in order
+Default Search Behavior
+By default, all terms are optional. By entering app design mobile you’ll find projects that contain any of these words.
+More Advanced Operators
+Advanced Mode adds these powerful features:
+​
+Search by Field
+You can search within specific fields using field prefixes:
+Available fields:
+title: - Search in project titles
+description: - Search in project descriptions
+skills: - Search in required skills
+
+Examples:
+title:wordpress AND skills:php - Find WordPress in projects title and PHP in Skills
+description:"mobile app" AND NOT skills:flutter - Find “mobile app” in projects descriptions and Skills doesn’t contain Flutter
+skills:(react OR vue) AND title:frontend - Find frontend in projects title and Skills contains React or Vue
+​
+Boolean Operators
+You can use AND, OR, NOT for complex queries:
+Examples:
+mobile OR web
+ui AND design NOT wordpress
+​
+Grouping Terms
+Use parentheses to group terms and create sub-queries:
+Examples:
+(frontend OR backend) AND (react OR node)
+(ui OR ux) AND mobile AND NOT (wordpress OR shopify)
+Pro Tips
+Always use parentheses when combining different operators
+You can mix basic and advanced syntax: "react (vue OR angular)"
+Group similar alternatives within parentheses
+Start simple and add complexity as needed
