@@ -1,0 +1,250 @@
+# Upwork Opportunity Scoring System
+
+## North Star
+
+Build a sustainable pipeline of long-term, growth-oriented engagements rather than a churn of small maintenance tasks. The goal is **$15,000/month in new project bookings** from Upwork, with each project landing in the **$2,000–$4,000 range over a 30–45 day cycle** (so roughly 4–7 new projects per month).
+
+To hit that, every bid needs to be deliberate. This document is the filter and scorecard.
+
+---
+
+## Ideal Client Profile (ICP)
+
+The pattern across the best past clients (both Upwork-sourced and otherwise) is mid-market consumer brands and funded startups that need lifecycle marketing built or leveled up — not bug fixes.
+
+| Anchor Client | Profile | Engagement Type | Lifetime Value |
+|---|---|---|---|
+| True Citrus | ~$10M CPG | Lifecycle / build + advise | High |
+| Tumblrware | $2–5M houseware e-comm | Lifecycle / build | Mid |
+| Little Hunter | Funded startup | Build | ~$50K |
+| TechSolve | (Upwork-sourced) | Ongoing | $50K–$60K |
+| CNG Arms | (Upwork-sourced) | Klaviyo build | $8K–$12K |
+
+**ICP traits to look for:**
+
+- $2M–$25M in revenue, OR a funded startup with budget to spend
+- DTC, CPG, or e-commerce (especially Shopify-based)
+- Already has volume — has an email list, paying customers, and existing automations to improve, not zero-to-one
+- Buyer is a founder, head of marketing, head of e-comm, or ops lead — someone who can make decisions
+- Klaviyo / ActiveCampaign / Omnisend / HubSpot user (or wants to be)
+
+---
+
+## Work Type Tiers
+
+The single biggest signal of long-term value is **what kind of work is being requested**. Score by tier:
+
+**Tier A — Build & Advise (target work).** Designing and building lifecycle programs, flow architecture, segmentation strategy, account audits with a roadmap, fractional/coaching engagements that grow the account over time. These compound into retainers and referrals.
+
+**Tier B — Project Build.** A specific, well-scoped build (e.g., "build our welcome series and abandoned cart in Klaviyo"). Good revenue, but needs a path to ongoing work or it caps out.
+
+**Tier C — Maintenance & Tasks.** Sending one-off campaigns, fixing a broken flow, copy-pasting content, list hygiene, "we just need a hand for a few hours." **Avoid by default.** Only consider if there's a clear upgrade path to Tier A/B work or the client matches ICP and the task is a foot in the door.
+
+**Tier D — Bottom-of-barrel.** Hourly grunt work for a tiny budget, no roadmap, no growth in the engagement. **Auto-skip.**
+
+---
+
+## Scoring Rubric
+
+Score each opportunity 0–5 on the dimensions below, then weight. Anything below the threshold doesn't get a bid.
+
+| Dimension | Weight | What "5" looks like | What "0" looks like |
+|---|---|---|---|
+| Work type | 25% | Tier A — build a lifecycle program, advisory, audit + roadmap | Tier D — sporadic task work |
+| Client size & resourcing | 20% | $2M+ revenue, funded startup, team in place to execute | Solo founder, no list, no budget signals |
+| Industry fit | 15% | DTC, CPG, e-commerce, ICP match | Niche B2B, services, irrelevant vertical |
+| Budget fit | 15% | $2K–$4K fixed (or hourly that maps there over 30–45 days) | Sub-$500 budget, "looking for the cheapest option" |
+| Engagement length | 10% | 30–45 day project with clear ongoing potential | One-and-done, hours-only |
+| Tool/expertise alignment | 10% | Klaviyo, ActiveCampaign, Omnisend, HubSpot, lifecycle/automation | Tool I don't work in or generic "email help" |
+| Strategic upside | 5% | Repeatable buyer profile, referral potential, case study material | Anonymous one-off, no relationship runway |
+
+**Bid thresholds:**
+
+- **Score 4.0+** → Priority bid. Send a tailored proposal same day.
+- **Score 3.0–3.9** → Bid if quota allows; use a short, sharp proposal.
+- **Score 2.0–2.9** → Skip unless something compensating jumps out (e.g., a known brand).
+- **Score below 2.0** → Auto-skip.
+
+---
+
+## Hard Disqualifiers (Auto-Skip)
+
+Don't waste a connect on these regardless of score:
+
+- Posts asking for "the cheapest" provider, or budget < $500 on a build
+- "Quick task" / "few hours" hourly listings with no scope of growth
+- Clients with no payment verified, no hire history, or low (< 50%) hire rate after many posts
+- Industries that are flatly outside ICP (legal services, local trades, generic agencies)
+- Posts that read as resold work for an agency middleman
+- VAs / "email assistant" / mailbox-management roles
+- Job descriptions that show no understanding of lifecycle marketing — these turn into education projects, not paid ones
+
+---
+
+## Upwork Search Filters
+
+Pre-filter the feed so only viable opportunities reach the scoring step.
+
+**Saved search filters to set up:**
+
+- **Category:** Marketing → Email Marketing, Marketing Automation, Marketing Strategy
+- **Job type:** Fixed-price preferred; Hourly only if rate ≥ $75
+- **Budget:** $1,000+ on fixed-price; ignore anything under
+- **Project length:** 1–3 months (the 30–45 day sweet spot)
+- **Experience level:** Expert
+- **Client history:** Payment verified ✅, $10K+ total spend, hire rate ≥ 60%
+- **Client location:** US, UK, CA, AU (filters out a lot of low-budget noise)
+
+**Keyword searches to run daily:**
+
+- "Klaviyo" build / migration / audit / flows / strategy
+- "lifecycle marketing" or "lifecycle email"
+- "marketing automation" + (Shopify OR DTC OR e-commerce)
+- "ActiveCampaign" build / setup / strategy
+- "email strategy" / "email program" / "email audit"
+- "fractional" + (CRM OR lifecycle OR email)
+
+**Negative keywords to mute:**
+
+- "VA", "assistant", "send my emails", "manage inbox"
+- "graphic designer needed", "Mailchimp template only"
+- "newsletter" alone (often hobbyist)
+- "$5/hr", "$10/hr", "small budget"
+
+---
+
+## Auto-Bid vs. Manual Bid Strategy
+
+Upwork's auto-bid only fires on jobs open to **worldwide talent**. Any post restricted to **US-only** has to be bid manually. That's actually a feature, not a bug — US-only posts tend to be higher quality, less competitive, and worth a tailored proposal. The strategy splits into two lanes.
+
+### Lane 1: Auto-Bid (Worldwide-Open Posts)
+
+Auto-bid is a volume play. It only works if the trust filter is strict enough that mediocre clients can't slip through. If even one of these criteria fails, the post should not be auto-bid.
+
+**Required client criteria for auto-bid eligibility:**
+
+- **Client location:** US (preferred), UK, CA, AU
+- **Budget:** Hourly rate ≥ $90, OR fixed-price ≥ $1,500
+- **Required freelancer JSS in the post:** 90%+ (a serious, quality-conscious buyer asks for this)
+- **Client rank / risk:** Medium or higher
+
+**"Medium+ client rank" decomposes to:**
+
+- ✅ Payment method verified — required, no exceptions
+- ✅ Phone number verified — required for auto-bid
+- ✅ At least 3 prior reviews on hires (proves they close, not just post)
+- ✅ Average hire amount ≥ $1,000 (real spenders, not test posters)
+- ✅ Hire rate ≥ 50% (active hirer, not a tire-kicker — single best signal that the connect won't be wasted)
+- ✅ Industry tag: e-commerce, retail, CPG, marketing/advertising, software. Exclude real estate, legal, education-only, government, and local services.
+
+**Additional auto-bid layers worth adding:**
+
+- **Post recency:** Only auto-bid jobs posted within the last 24 hours. Anything older has too much proposal saturation to break through with a templated bid.
+- **Connect cost cap:** Auto-bid only on posts costing ≤ 8 connects. Reserve 12–16-connect "premium" posts for manual bids with hand-tailored proposals.
+- **Proposal saturation cap:** Skip auto-bidding any job already showing 20+ proposals — the marginal connect doesn't pay back at that depth.
+- **Job duration:** Auto-bid on "1–3 months" and "More than 6 months." Skip "Less than 1 month" — those skew Tier C maintenance.
+- **Hire history pattern:** Lean in if the client has hired multiple different freelancers in the past 90 days (active program with budget). Deprioritize if the client has hired the same one freelancer 5+ times — they're loyal to that person and a new bidder is filler.
+- **Post quality:** Auto-bid only on detailed JDs (≥ 200 words). One-liner posts skew low-quality and tire-kicky.
+
+**Auto-bid kill switches (any one trips → do not auto-bid):**
+
+- Client has any open dispute or a sub-3-star average review
+- Post mentions "agency", "white-label", "subcontract", "resell"
+- Country is in the bottom-spend tier regardless of other signals
+- Post is older than 48 hours
+- Job category is outside Marketing / Email / Automation
+
+### Lane 2: Manual Bid (US-Only Posts)
+
+US-only posts are auto-bid's blind spot, but they're often the best opportunities because:
+
+- Less competition — the worldwide pool is excluded
+- Clients specifying US usually have higher budgets and more sophistication
+- Time-zone overlap is part of what they're paying for, not a bonus
+- Many fall straight into Tier A "build & advise" territory
+
+**Treat the US-only feed as the priority queue.** Save it as a dedicated search and review it twice daily (morning and end of day). Hand-write each proposal. Conversion rate should be measurably higher than the auto-bid lane.
+
+**Manual bid prioritization within the US-only queue:**
+
+- **Always priority bid:** Tier A work, Klaviyo migration / audit / strategy, fractional or advisory engagements, $5K+ fixed posts
+- **Standard bid:** Tier B builds with clear scope, hourly $90+ with reasonable scope
+- **Skip:** Tier C/D, sub-$1.5K fixed, anything below the rubric threshold
+
+### Channel Decision Matrix
+
+| Signal | Auto-Bid | Manual Bid | Skip |
+|---|---|---|---|
+| Worldwide + meets all auto-bid criteria + ICP fit | ✅ | — | — |
+| Worldwide + Tier A work + ICP fit | — | ✅ (hand-tailored) | — |
+| US-only + ICP fit | — | ✅ | — |
+| Worldwide + fails any auto-bid criterion | — | Only if rubric ≥ 4.0 | — |
+| Worldwide + meets criteria but rubric < 3.0 | — | — | ✅ |
+| US-only + outside ICP | — | — | ✅ |
+
+### Suggested Auto-Bid Configuration (Starting Point)
+
+- **Daily cap:** 10 bids/day (preserves connects for manual priority bids)
+- **Weekly cap:** 40 bids/week
+- **Connect spend cap:** Auto-bid consumes no more than 60% of weekly connects. The remaining 40% goes to US-only manual bids where conversion is higher.
+- **Pause triggers:** If auto-bid acceptance rate drops below 5% on a rolling 30-day window, pause and re-tighten the filter before resuming.
+
+### Edge Cases Worth Building Filters Around
+
+The standard filter misfires on a handful of recurring scenarios. Watch for these and route them to the right lane manually:
+
+- **"New on Upwork" but verified, deep pockets:** No reviews yet, but payment verified and a serious JD. Auto-bid will skip them. Worth a manual look — these are sometimes legitimate $5M brands posting their first Upwork job.
+- **Brand-name clients:** If a recognizable Shopify Plus / DTC brand posts, bypass the rubric and bid manually regardless of score.
+- **Re-posts:** Same client posting a similar job 2–3 times suggests they've been burned by previous freelancers. Often a Tier B "build it right this time" — strong opportunity for a confident, opinionated proposal.
+- **Invitation-to-interview:** Always priority manual, regardless of channel. The client already filtered for you.
+- **Long-running hourly contracts (10+ hires of the same archetype):** Often agencies in disguise. Skip.
+- **End-of-quarter post spikes:** Brands have leftover budget in March / June / September / December. If ICP-keyword post volume spikes those months, temporarily widen the auto-bid filter (e.g., drop hire-rate floor from 50% to 40%).
+- **Massive single-hire whales ($100K+ on one freelancer):** Won't switch easily. Auto-bid will eat connects with no return. Skip unless the JD explicitly says "looking for someone new."
+- **Government / nonprofit / education posts:** Often look ICP-aligned (DTC-flavored language) but pay slowly and procure differently. Skip both lanes.
+
+---
+
+## Per-Opportunity Scorecard
+
+Copy this block into a note when triaging a job post.
+
+```
+JOB:
+URL:
+CLIENT:
+
+Tier (A/B/C/D):
+Work type score (0–5):
+Client size score (0–5):
+Industry fit score (0–5):
+Budget fit score (0–5):
+Engagement length score (0–5):
+Tool alignment score (0–5):
+Strategic upside score (0–5):
+
+WEIGHTED TOTAL: __ / 5.0
+
+Decision: Priority bid / Bid / Skip
+Why:
+Angle for proposal (1 sentence):
+```
+
+---
+
+## Pipeline Math (Sanity Check)
+
+To land $15K/month at $2K–$4K per project:
+
+- ~5 new projects/month at $3K average → $15K
+- Assume a 1-in-5 bid-to-hire conversion at the priority tier → ~25 priority bids/month → ~6 priority bids/week
+- This is only realistic if the filter is tight. Bidding 50/week on mediocre fits hits the connect budget without lifting close rate.
+
+If the priority feed isn't generating ~6 fits/week, the filter is too narrow OR the search keywords need expanding — not the bar lowering.
+
+---
+
+## Review Cadence
+
+- **Weekly:** Review which bids were accepted vs. ignored. Update keyword and negative-keyword lists.
+- **Monthly:** Re-score the rubric against actual won/lost work. If a "3.5" client turned into the best engagement of the quarter, the weights are wrong.
+- **Quarterly:** Refresh the ICP table with new anchor clients won.
