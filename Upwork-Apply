@@ -33,6 +33,45 @@ The AI will receive input in the following format:
 
 ----------------------------------------------------------------------
 
+- Improve examples and descriptions of work similar to their project 
+- DTC: True Ctirus, Tumblerware, Little Hunter 
+- Subscriptions: Little Hunter, True Citrus, .nope Hair Care, Enchant Brands, Therapy Clean
+- Other Ecom: Tumblerware, Hear.com, 
+- B2C:TaxSolve/Tax Quotes, 
+- Active Campaign: TaxQuotes
+- SaaS: FastCat Coaching- Optimize App (now called Coach Cat) 
+- Apparel: D'Iyanu, Women Suits, Stio, etc. 
+- Beauty: .nope hair care (UK based), Lux Skin Oils 
+- CPG: True Citrus, Milton's Craft Bakers, Enchant Brands, Little Hunter, Therapy Clean, 
+- Houseware: Tumblerware, GlassGuard, Therapy Clean, 
+- Supplements: True Citrus, Enchant Protein, Blaze-n-Chill, M&H Health
+- Pet/Dog; Little Hunter, 
+- Durable or Technical Goods: Tumbler, Hear.com, 
+- Cannabis/CBD: Blaze-n-Chill, 
+
+- Build Automations/Flows: Little Hunter, True Citrus, Tumblerware, Therapy Clean, 
+- Abandon Cart: Tumblerware, D'Iaynu, Glass Guard, True Citrus, Little Hunter 
+- Retention marketing: Tumbler, True Citrus, Little Hunter
+- Email Campaigns: True Citrus, OpenBlooms, Little Hunter, Tumblerware 
+- Audits: D'Iyanu, Flag Store, TaxSolve/Quotes, 
+- Email Deliverability; TaxSolve, True Ctirus, C&G Arms, Built emaildelivery.co,
+
+- Strategy 
+- Improvement - sales 
+- Segmenting and Targeting 
+- Email Copy & Design 
+- Automation Builds & Integration 
+
+Problems - Solutions- Approaches 
+- Build email campaign system - Little Hunter Trello production system - To Do, Doing, Review & Approve, Done 
+- Build lifecyle email campaigns by customer type - Zero party data - match to customer 
+- Personalize and customize emails based on customer type 
+- Match customers to products - .nope Hair care 
+- Reduce Churn - NPS score builder - True Citrus, Little Hunter, .nope Hair 
+- Customer Reviews - Little Hunter, True Citrus, 
+- Winback - personalized codes for high value customers - single use only their's 
+
+
 {Write a personal greeting using the client's name if provided, in the local language of their country, using the client's time of day, for the remaining cover letter, use English, in a conversational yet personal tone, avoid generic phrases, or cliches, be straightforward, respectful, and avoid sounding like a salespersonenter your prompt}
 
 {If the Client is from South Carolina mentioned, I'm from SC. If It's a furniture business, mention I ran a $64M fthe furniture sales for Surya Otherwise, ignore these rules.}
@@ -43,7 +82,7 @@ The AI will receive input in the following format:
 
 I'm Steven, a US-based Klaviyo Retention specialist (Top Rated, 100% JSS, Klaviyo, Shopify and ReCharge partner). I help DTC brands turn new or underperforming retention programs into predictable revenue system without wasting time or budget.
 
-{Have the model restate the client's main goal in 1 sentence, e.g. "increase our email revenue to 30% or more"
+{Have the model restate the client's main goal in 1 sentence, e.g. "increase our email revenue to 30% or more"}
 
 {Have the model review the listing for questions or things to include and Answer the questions(s) directly using relevant experence from my background: https://www.upwork.com/freelancers/klaviyoemailexpert}
 
@@ -56,8 +95,6 @@ To Your Success,
 Steven
 
 Email Examples: https://www.figma.com/design/71fyBZZpBgXMQCUYMgespQ/Email-Examples?node-id=0-1&p=f&t=8Bnx7MgwYXvHTeLc-0
-
-
 
 
 ------------------------------------------------------------------------
