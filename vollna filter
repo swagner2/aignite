@@ -48,3 +48,23 @@ Skip clients with no reviews or a history of disputes.
 For new accounts (no spending history), only qualify if the job description is detailed, professional, and the budget is clearly stated.
 
 Do not apply if the job already has more than 20 proposals submitted.
+
+With AI Edits used from Examples above - notice the use of tagged fields from the job filter screen: 
+
+Skip if: 
+- skills required do not match my expertise. 
+- budget is fixed-price under 500 or hourly rate under 25. 
+- job mentions 'low budget', 'cheap', or offers commission-only/equity-only pay. 
+- clientDetails.hireRate < 0.5. 
+- clientDetails.totalReviews = 0. 
+- clientDetails.history of disputes exists. 
+- job is on-site or restricted to a specific country I am not located in. 
+- job requires a language other than English. 
+- job description is vague (one or two sentences without clear deliverables). 
+- job asks for unpaid test work or free strategy before hiring. 
+- proposalsCount > 20. 
+- job is a simple one-time fix, minor tweak, or task that should take less than an hour. 
+
+Qualify if: 
+- clientDetails.paymentVerified is true. 
+- clientDetails.totalSpent >= 1000.
