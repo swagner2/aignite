@@ -1,0 +1,76 @@
+
+Email Qc Report: 
+Inbox Placement
+{{ $('On Email Received').item.json.labelIds[1] }}
+{{ $json.Inbox }}
+Subject: 
+{{ $json.Subject }}
+{{ $json.Sender }}
+
+QC SUMMARY
+{{ $('Analyze Email').item.json.output.quality_issues.summary }}
+
+SPELLING ERRORS: 
+{{ $('Analyze Email').item.json.output.quality_issues.spelling_errors }}
+
+SCORE
+CONVERSION: {{ $('Analyze Email').item.json.output.conversion.score }}
+COPY: {{ $('Analyze Email').item.json.output.copy.score }}
+CTR: {{ $('Analyze Email').item.json.output.ctr.score }}
+DELIVERABILITY: {{ $('Analyze Email').item.json.output.deliverability.score }}
+DESIGN: {{ $('Analyze Email').item.json.output.design.score }}
+
+PRIORITY FIX:
+{{ $('Analyze Email').item.json.output.overall_priority_fix }}
+
+
+COPY CHECK 
+{{ $('Analyze Email').item.json.output.copy.summary }}
+1. {{ $('Analyze Email').item.json.output.copy.recommendations[0] }}
+2. {{ $('Analyze Email').item.json.output.copy.recommendations[1] }}
+3. {{ $('Analyze Email').item.json.output.copy.recommendations[2] }}
+
+CONVERSION CHECK 
+{{ $('Analyze Email').item.json.output.ctr.summary }}
+1. {{ $('Analyze Email').item.json.output.conversion.recommendations[0] }}
+2. {{ $('Analyze Email').item.json.output.conversion.recommendations[1] }}
+3. {{ $('Analyze Email').item.json.output.conversion.recommendations[2] }}
+
+DESIGN CHECK 
+{{ $json.Design }}
+1. {{ $('Analyze Email').item.json.output.design.recommendations[0] }}
+2. {{ $('Analyze Email').item.json.output.design.recommendations[1] }}
+3. {{ $('Analyze Email').item.json.output.design.recommendations[2] }}
+
+
+CTR CHECK
+{{ $('Analyze Email').item.json.output.ctr.summary }}
+1. {{ $('Analyze Email').item.json.output.ctr.recommendations[0] }}
+2. {{ $('Analyze Email').item.json.output.ctr.recommendations[1] }}
+3. {{ $('Analyze Email').item.json.output.ctr.recommendations[2] }}
+
+
+TECHNICAL CHECK 
+Images missing ALT Text 
+{{ $json['Images Missing Alt Text '] }}
+
+
+DELIVERABILITY 
+DMARC: {{ $json.DMARC }}
+SPF: {{ $json.SPF }}
+DKIM: {{ $('Parse Email').item.json.metrics.dkim }}
+
+{{ $('Analyze Email').item.json.output.deliverability.summary }}
+1. {{ $('Analyze Email').item.json.output.deliverability.recommendations[0] }}
+2. {{ $('Analyze Email').item.json.output.deliverability.recommendations[1] }}
+3. {{ $('Analyze Email').item.json.output.deliverability.recommendations[2] }}
+
+EMAIL PROCESSED:
+{{ $('On Email Received').item.json.headers.date }}
+{{ $('On Email Received').item.json.headers.from }}
+{{ $('On Email Received').item.json.headers.subject }}
+
+{{ $('On Email Received').item.json.headers['delivered-to'] }}
+{{ $('On Email Received').item.json.headers['return-path'] }}
+{{ $('On Email Received').item.json.headers['received-spf'] }}
+{{ $('On Email Received').item.json.headers['dkim-signature'] }}
